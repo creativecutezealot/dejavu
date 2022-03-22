@@ -1,0 +1,12 @@
+<div class="overlay anim" *ngIf="_status" [ngClass]="_class">
+    <div class="ic anim-fast" [ngClass]="_ic_class">
+        <h3>Enter Value</h3>
+        <a (click)="closePopup()" class="btnback-nav"></a>
+        <div class="text-cont">
+            <div class="text">
+                <input type="number" [(ngModel)]="_entered_value">
+            </div>
+            <a class="btnok" (click)="onClickOk()">Done</a>
+        </div>
+    </div><!--end-->
+</div><!--end-->

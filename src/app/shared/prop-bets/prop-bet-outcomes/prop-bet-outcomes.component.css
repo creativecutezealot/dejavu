@@ -1,0 +1,210 @@
+.cont{background-color:#00263c;position: absolute;top:0px;left:0px;z-index:9999;width:100%;height:100%;}
+.topbar{
+  width: 100%;
+  height: 63px;
+  background-color: #000f1d;
+  position: fixed;
+  top:0px;
+  left:0px;
+  z-index:99;
+}
+.title-cont{top:63px;width:100%;text-align: center;height:80px;position: fixed;left:0px;z-index: 99;background-color:#00263c}
+.title-cont img{position: absolute;top:50%;left:50%;transform:translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);}
+.items{padding-top:180px;display:block;width:100%;height:calc(100% - 180px);overflow-y: scroll;}
+.items .items_c{display:block;width:100%;}
+.items .item{display: block;}
+.items .item .date{
+    display:block;
+    font-family: "Gotham Rounded";
+    font-size: 9px;
+    font-weight: 500;
+    line-height: 1.44em;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    margin:0 0 20px 0;
+}
+.items .item .date:before{
+    content:" ";
+    position: absolute;
+    left:14px;
+    top:50%;
+    transform: translate(0,-50%);
+    -webkit-transform: translate(0,-50%);
+    border: solid 1px #294055;
+    width:100%;
+    max-width:135px;
+}
+
+.items .item .date:after{
+    content:" ";
+    position: absolute;
+    right:14px;
+    top:50%;
+    transform: translate(0,-50%);
+    -webkit-transform: translate(0,-50%);
+    border: solid 1px #294055;
+    width:100%;
+    max-width:135px;
+}
+.items .item .game-cont{
+  position: relative;
+  width:100%;
+  max-width: calc(100% - 28px);
+  height: 94px;
+  border-radius: 7px;
+  border: solid 2px #f44c57;
+  background-color: #00182e;
+  display:block;
+  margin:0 auto 18px;
+}
+.items .item .game-cont:before{
+    position: absolute;
+    width:100%;
+    max-width: 100%;
+    height: 94px;
+    border-radius: 7px;
+    background-color: rgba(0, 0, 0, 0.25);
+    content:" ";
+    top:6px;
+}
+.items .item .game-cont .game-b{position: absolute;left:0px;top:0px;height:calc(100% - 2px);width:calc(100% - 2px);
+    border: solid 1px #ffffff;
+    border-radius: 5px;
+}
+
+.items .item .game-cont .game-b .teams{
+    float:left;width: 125px;
+    border-right:1px solid #fff;
+}
+.items .item .game-cont .game-b .teams .team{
+    display:block;
+    width:109px;
+    height:38px;
+    margin:2px 0 0 2px;
+    padding:6px 0 0 10px;
+}
+
+.items .item .game-cont .game-b .teams .team.brt{
+    border-top-left-radius: 5px;
+}
+.items .item .game-cont .game-b .teams .team.win{
+    background-image: linear-gradient(251deg, #00182e, #00498d);
+}
+.items .item .game-cont .game-b .teams .team .title{
+    font-family:"Gotham Rounded";
+    font-size: 8px;
+    font-weight: 500;
+    line-height: 1.5em;
+    text-align: left;
+    color: #f44c57;
+    text-transform: uppercase;
+    display:block;
+    text-align: center;
+}
+.items .item .game-cont .game-b .teams .team .name{
+    font-family:"Gotham Rounded";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.38em;
+    text-align: left;
+    color: #ffffff;
+    float: left;clear: left;
+}
+
+.items .item .game-cont .game-b .teams .team .score{
+    font-family: "Gotham Rounded";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.38em;
+    text-align: center;
+    color: #ffffff;
+    float:right;
+    /* margin:-8px 15px 0 0; */
+}
+.items .item .game-cont .game-b .user-scores{
+    float:right;
+    width:calc(100% - 126px);
+    border-bottom:1px solid #fff;
+    height:59px;
+    
+}
+.items .item .game-cont .game-b .user-scores .scores{
+    float:left;clear: both;
+    width: 100%;
+    margin-bottom:3px;
+}
+
+.items .item .game-cont .game-b .user-scores .score{
+    width:50%;
+    float:left;   
+    height: 59px;
+   
+}
+.items .item .game-cont .game-b .user-scores .score:last-child{
+    width:calc(50% - 1px);
+    border-left: solid 1px #1c3245;
+}
+.items .item .game-cont .game-b .user-scores .score .title{
+    display:block;
+    font-family: "Gotham Rounded";
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1.5em;
+    text-align: center;
+    color: #ffffff;
+    text-transform: uppercase;
+    padding-top:10px;
+}
+
+.items .item .game-cont .game-b .user-scores .score .val{
+    width:100%;
+    font-family: "Gotham Rounded";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.38em;
+    text-align: center;
+    color: #ffffff;
+    display: block;
+    text-align: center;
+}
+
+.items .item .game-cont .game-b .game-status{
+    clear: both;
+    margin:2px 2px;
+    display:block;
+    width: calc(100% - 4px);
+    height: 28px;
+    background-image: linear-gradient(to bottom, #00182e, #0b345a);
+   
+    text-align: center;
+    border-bottom-right-radius: 3px;
+    
+}
+.items .item .game-cont .game-b .game-status.final{ background: #ffffff;}
+.items .item .game-cont .game-b .game-status span{
+  font-family: "Gotham Rounded";
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.46em;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  padding-top:6px;
+  display: block;
+}
+.items .item .game-cont .game-b .game-status.final span{color:#f44c57}
+
+
+@media screen and (display-mode: browser) and (max-width: 375px){
+ 
+
+}
+
+@media screen and (display-mode: browser) and (max-width: 320px){
+
+    .items .item .date:after,
+    .items .item .date:before{
+        max-width:100px;
+    }
+}

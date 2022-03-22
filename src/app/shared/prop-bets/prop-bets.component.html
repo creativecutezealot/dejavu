@@ -1,0 +1,162 @@
+<div class="cont animated fast prop-bets" [ngClass]="animateClass">
+
+  <div class="topbar prop-bets-topbar">
+    <a class="btnback-nav" (click)="onBack()"></a>
+    <img class="logo" src="../../../assets/images/inner-logo.png" />
+    <img class="dejavu" src="../../../assets/images/dejavu-logo.png" />
+  </div>
+  <div class="title-cont">
+    <img src="../../../assets/images/props-bet-title.svg" />
+  </div>
+
+  <div class="props-form">
+    <div class="fields">
+      <div class="lbl">Automatically / Freestyle:</div>
+      <div class="field-value">
+        <div class="switch">
+          <app-switch (onChange)="onChangeFreestyle($event)" [status]="is_freestyle"></app-switch>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="!is_freestyle">
+      <div class="fields">
+        <div class="lbl">Player/Team:</div>
+        <div class="field-value">
+          <div class="select" (click)="onSelectOptions('select_play_team')">
+            <span *ngIf="_selected_player_team">{{_selected_player_team.value}}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fields" [ngClass]="{'disabled':!is_will_result}">
+        <div class="lbl">Will result in:</div>
+        <div class="field-value">
+          <div class="select" (click)="onSelectOptions('select_will_result')">
+            <span *ngIf="_selected_will_result_in">{{_selected_will_result_in.value}}</span>
+          </div>
+          <!-- <div class="switch">
+            <label class="lbl not"><input type="checkbox" [checked]="is_not" (change)="is_not = !is_not" />NOT</label>
+          </div> -->
+        </div>
+      </div>
+
+      <div class="fields" [ngClass]="{'disabled':!is_with_timeframe}">
+        <div class="lbl">With timeframe:</div>
+        <div class="field-value">
+          <div class="select" (click)="onSelectOptions('select_timeframe')">
+            <span *ngIf="_selected_with_timeframe">{{_selected_with_timeframe.value}}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fields">
+        <div class="lbl">Proposed odds:</div>
+        <div class="field-value">
+          <div class="select" (click)="onSelectOptions('select_proposed_bets')">
+            <span *ngIf="_selected_odds">{{_selected_odds.value}}</span>
+          </div>
+          <!-- <div class="switch">
+            <app-switch (onChange)="onChangeProposedOdds($event)" [status]="is_proposed_odds"></app-switch>
+          </div> -->
+        </div>
+      </div>
+
+      <div class="fields">
+        <div class="lbl">Bet amount:</div>
+        <div class="field-value">
+          <div class="txt" (click)="onSelectOptions('bet_amount')">
+            <span class="s">$</span>
+            <span class="val" *ngIf="_bet_amount">{{_bet_amount}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="is_freestyle">
+      <div class="fields">
+        <div class="lbl">I bet:</div>
+        <div class="field-value">
+          <div class="txt" (click)="onSelectOptions('i_bet')">
+            <span class="val" *ngIf="_i_bet">{{_i_bet}}</span>
+          </div>
+        </div>
+        <div class="lbl">diamonds</div>
+      </div>
+
+      <div class="fields">
+        <div class="lbl">To Win:</div>
+        <div class="field-value">
+          <div class="txt" (click)="onSelectOptions('to_win')">
+            <span class="val" *ngIf="_to_win">{{_to_win}}</span>
+          </div>
+        </div>
+        <div class="lbl">diamonds</div>
+      </div>
+
+      <div class="fields">
+        <div class="lbl">Event:</div>
+      </div>
+
+      <div class="fields">
+        <textarea rows="4" class="event_content" [(ngModel)]="_event_content"></textarea>
+      </div>
+    </div>
+
+    <div class="fields">
+      <div class="lbl">Send to:</div>
+    </div>
+
+    <div class="fields send-to ">
+      <div class="select anim" (click)="onSelectOptions('select_send_to')">
+        <div *ngIf="_select_send_to">
+          <span *ngIf="_select_send_to.users && is_send_to_friend">{{_select_send_to.users.first_name}}
+            {{_select_send_to.users.last_name}}</span>
+          <span *ngIf="_select_send_to.groups && !is_send_to_friend">{{_select_send_to.groups.name}}</span>
+        </div>
+        <span *ngIf="!_select_send_to && is_send_to_friend">Friends</span>
+        <span *ngIf="!_select_send_to && !is_send_to_friend">Groups</span>
+      </div>
+
+      <div class="switch">
+        <app-switch (onChange)="onChangeSendToFriend($event)" [status]="is_send_to_friend"></app-switch>
+      </div>
+    </div>
+    <!--end-->
+    <div class="fields anim all-watching" *ngIf="!is_freestyle" [ngClass]="{'disabled':!is_send_all_watching}">
+      <div class="lbl anim">All watching this game:</div>
+      <div class="switch">
+        <app-switch (onChange)="onChangeSendAllWatching($event)" [status]="is_send_all_watching"></app-switch>
+      </div>
+    </div>
+
+    <div class="fields max-takers" [ngClass]="{'disabled':!is_max_takers}">
+      <div class="lbl">Max Takers:</div>
+      <div class="field-value">
+        <div class="txt" (click)="onSelectOptions('max_takers')">
+          <span class="val" *ngIf="_max_takers">{{_max_takers}}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="fields" *ngIf="is_freestyle">
+      <div class="lbl">Judge:</div>
+      <div class="field-value">
+        <div class="select anim" (click)="onSelectOptions('select_judge')">
+          <div *ngIf="_select_judge">
+            <span *ngIf="_select_judge">{{_select_judge.value}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="fields max-takers">
+      <div class="lbl">Automatically Renew:</div>
+      <input class="autoRenew" type="checkbox" [checked]="is_auto_renew" (change)="is_auto_renew = !is_auto_renew" />
+    </div> -->
+
+    <a class="btndefault" (click)="onSubmitPropBets()">Send</a>
+  </div>
+  <!--end--->
+</div>
+<!--end-->

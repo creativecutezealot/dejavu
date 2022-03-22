@@ -1,0 +1,37 @@
+<div class="boxtable animated scores-box" [ngClass]="boxClass">
+  <div class="ic">
+    <a (click)="onClose($event)" class="btnclose"></a>
+    <span class="title">Leaderboard</span>
+    <div class="hdr">
+      <span class="col rank">Rank</span>
+      <span class="col uname">Username</span>
+      <span class="col mon">Points</span>
+    </div>
+    <div class="items" id="scrollview_scores">
+      <div id="scrollcontainer_scores">
+
+        <div class="item" *ngFor="let u of user_scores; index as rank;">
+          <span class="col rank">{{rank + 1}}</span>
+          <span class="col uname">{{u.user.display_name}}</span>
+          <span class="col mon">{{u.total | gameCurrencyFormat}}</span>
+        </div>
+        <!--end-->
+      </div>
+      <!--scrollcontainrer-->
+    </div>
+    <!--end-->
+    <app-scrollbar *ngIf="loaded" top="61" height="246" scrollview="scrollview_scores"
+      scrollcontainer="scrollcontainer_scores"></app-scrollbar>
+    <a (click)="onReload($event)" class="btnreload">Reload</a>
+
+    <div class="profile">
+      <div class="scores">
+        <span class="chips">Chip Value: {{ this.chipValue | gameCurrencyFormat }}</span>
+        <span class="ranks">Rank: {{this.rank}} / {{this.user_scores?this.user_scores.length:''}}</span>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!--end ic-->
+ 
+<!--end-->

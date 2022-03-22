@@ -1,0 +1,14 @@
+{
+    "appId": "com.dejavusports.baseballcraps08",
+    "appName": "baseballcraps",
+    "bundledWebRuntime": false,
+    "npmClient": "npm",
+    "webDir": "dist/baseballcraps",
+    "plugins": {
+      "PushNotifications": {
+        "presentationOptions": ["badge", "sound", "alert"]
+      }
+    },
+    "cordova": {}
+  }
+  

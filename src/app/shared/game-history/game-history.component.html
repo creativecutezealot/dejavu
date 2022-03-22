@@ -1,0 +1,58 @@
+<div class="cont animated fast gamehistory" [ngClass]="animateClass">
+
+    <div class="topbar gamehistory-topbar">
+        <a class="btnback-nav" (click)="onClose()"></a>
+        <img class="logo" src="../../../assets/images/inner-logo.png" />
+        <img class="dejavu" src="../../../assets/images/dejavu-logo.png" />
+    </div>
+    <div class="title-cont">
+        <img height="24.58" src="../../../assets/images/game-history-text.svg" />
+    </div>
+
+    <div class="items" id="game_history_items">
+        <div class="items_c" id="game_history_items_c">
+            <div class="item animated fadeIn" *ngFor="let row of data">
+                <div class="date">
+                    {{row.created_at | date:"mediumDate"}}
+                </div>
+                <div class="game-cont">
+                    <div class="game-b">
+                        <div class="teams">
+                            <div class="team brt" [ngClass]="{'win':row.games.HomeTeamRuns>row.games.AwayTeamRuns}">
+                                <span class="title">Home</span>
+                                <span class="name">{{row.games.HomeTeam}}</span>
+                                <span class="score">{{row.games.HomeTeamRuns}}</span>
+                            </div>
+                            <!--end-->
+                            <div class="team" [ngClass]="{'win':row.games.AwayTeamRuns>row.games.HomeTeamRuns}">
+                                <span class="title">AWAY</span>
+                                <span class="name">{{row.games.AwayTeam}}</span>
+                                <span class="score">{{row.games.AwayTeamRuns}}</span>
+                            </div>
+                        </div>
+                        <div class="user-scores">
+                            <div class="scores">
+                                <div class="score">
+                                    <span class="title">Total Bets</span>
+                                    <span class="val">{{ row.total_bets | number}}</span>
+                                </div>
+                                <div class="score">
+                                    <span class="title">Win: +{{row.total_win | gameCurrencyFormat}}</span>
+                                    <span class="title">Lose: -{{row.total_lose | gameCurrencyFormat}}</span>
+                                </div>
+                            </div>
+                            <div class="game-status" [ngClass]="{'final':row.games.Status=='Final'}">
+                                <span>{{row.games.Status}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!---end of game -b-->
+                </div>
+                <!--end of gmae cont-->
+            </div>
+            <!--end of item-->
+        </div>
+    </div>
+    <!--end-->
+</div>
+<!--end-->

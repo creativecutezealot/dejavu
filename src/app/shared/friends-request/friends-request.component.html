@@ -1,0 +1,26 @@
+<div class="cont animated fast default-cont" [ngClass]="animateClass">
+
+    <div class="topbar default-topbar">
+      <a class="btnback-nav" (click)="onClose()"></a>
+      <img class="logo" src="../../../assets/images/inner-logo.png" />
+      <img class="dejavu" src="../../../assets/images/dejavu-logo.png" />
+    </div>
+    <div class="title-cont default-text-page-title">
+      
+      <img height="24.58" src="../../../assets/images/txt-friend-request.svg"/>
+    </div>
+
+    <div class="anim lists-container active">
+        <div class="list-search-box anim active">
+          <input type="text" placeholder="Search..." [(ngModel)]="txt_friends_search" (keyup)="onShowFriends()"/>
+        </div>
+        <ul *ngIf="user_friends">
+          <li *ngFor="let row of user_friends"><span>{{row.users.first_name}} {{row.users.last_name}}</span> <a class="btnunfriend" (click)="onAccept(row._id)">Accept</a></li>
+        </ul>
+    </div>
+ 
+  
+
+</div>
+<!--end-->
+  

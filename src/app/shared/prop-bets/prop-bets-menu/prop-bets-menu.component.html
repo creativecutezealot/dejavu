@@ -1,0 +1,18 @@
+<div class="cont animated fast prop-bets" [ngClass]="animateClass">
+  <div class="topbar prop-bets-topbar">
+    <a class="btnback-nav" (click)="onClose()"></a>
+    <img class="logo" src="../../../assets/images/inner-logo.png" />
+    <img class="dejavu" src="../../../assets/images/dejavu-logo.png" />
+  </div>
+  <div class="title-cont">
+    <img src="../../../assets/images/props-bet-title.svg" />
+  </div>
+
+  <ul class="popup-nav">
+    <li><a (click)="onMenuClick('prop-bets')">Propose a Bet</a></li>
+    <li><a (click)="onMenuClick('available-prop-bets')">Available Prop Bets</a></li>
+    <li><a (click)="onMenuClick('active-prop-bets')">Active Prop Bets</a></li>
+    <li><a (click)="onMenuClick('prop-bet-outcomes')">Prop Bet Outcomes</a></li>
+  </ul>
+</div>
+<!--end-->

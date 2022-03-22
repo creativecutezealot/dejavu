@@ -1,0 +1,12 @@
+<div class="anim lists-container" [ngClass]="{'active':_status}">
+  <div class="list-search-box anim" [ngClass]="{'active':_status}">
+    <input type="text" placeholder="Search..." [(ngModel)]="_txt_user_search" (keyup)="onShowMembers()" />
+  </div>
+  <ul *ngIf="_users">
+    <li *ngFor="let row of _users"><span>{{row.first_name}} {{row.last_name}}</span>
+      <a *ngIf="row.join_group_status==0" class="btninvite" (click)="onInvite(row._id,row)">Invite</a>
+      <span *ngIf="row.join_group_status==1" class="status">Already Member</span>
+      <span *ngIf="row.join_group_status==2" class="status">Invite Sent</span>
+    </li>
+  </ul>
+</div>

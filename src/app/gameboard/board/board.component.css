@@ -1,0 +1,1289 @@
+.mc {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+}
+.mc * {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.mc.blur {
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+}
+.mc .stadium {
+  width: 100%;
+  display: block;
+  max-width: 375px;
+  position: relative;
+  margin: 27px auto 0px;
+}
+.mc .stadium img {
+  width: 100%;
+  max-width: 375px;
+}
+.mc .stadium .bet_area {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  z-index: 999;
+  background: rgba(108, 107, 129, 0);
+  position: absolute;
+}
+.mc .stadium .bet_area.active {
+  background: rgba(84, 76, 255, 0.5);
+}
+.mc .stadium .bet_area.odds.active {
+  background: rgba(255, 0, 0, 0.5) !important;
+}
+.mc .stadium .passline-left {
+  left: 21%;
+  bottom: 10%;
+}
+.mc .stadium .passline-right {
+  display: none;
+  width: 50%;
+  height: 20px;
+  right: 15px;
+  bottom: 40px;
+}
+.mc .stadium .come-left {
+  left: 64%;
+  bottom: 66px;
+}
+.mc .stadium .first_to_home {
+  bottom: 136px;
+  left: 83%;
+}
+.mc .stadium .place_8_ways {
+  bottom: 136px;
+  left: 7%;
+}
+.mc .stadium .come-right {
+  display: none;
+  width: 30%;
+  height: 20px;
+  right: 50px;
+  bottom: 85px;
+}
+.mc .stadium .bb {
+  left: 45%;
+  bottom: 67px;
+}
+.mc .stadium .infield_fly {
+  left: 34%;
+  bottom: 140px;
+}
+.mc .stadium .ground_out {
+  right: 34%;
+  bottom: 140px;
+}
+.mc .stadium .k {
+  left: 45%;
+  bottom: 110px;
+}
+.mc .stadium .fly_out {
+  left: 27%;
+  top: 109px;
+}
+.mc .stadium .hit {
+  left: 63%;
+  top: 109px;
+}
+.mc .chipbuttons {
+  float: right;
+  margin: -18px 0 0px 0;
+  width: calc(100% - 63px);
+}
+.mc .chipbuttons ul {
+  display: block;
+  list-style: none;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+}
+.mc .chipbuttons ul li {
+  display: inline-block;
+  margin: 0 3.2px;
+  opacity: 1;
+}
+.mc .chipbuttons ul li.disablechip {
+  opacity: 0.8;
+}
+.mc .chipbuttons ul li a {
+  width: 34px;
+  height: 34px;
+  background-size: cover !important;
+  display: inline-block;
+  border-radius: 34px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+.mc .chipbuttons ul li a.active {
+  border: 2px solid #ffd530;
+}
+
+.win_chip .chp.achp1,
+.mc a.ch1d {
+  background: url('../../../assets/images/ch1d.png') 0 0 no-repeat;
+}
+.win_chip .chp.achp5,
+.mc a.ch5d {
+  background: url('../../../assets/images/ch5d.png') 0 0 no-repeat;
+}
+.win_chip .chp.achp10,
+.mc a.ch10d {
+  background: url('../../../assets/images/ch10d.png') 0 0 no-repeat;
+}
+.win_chip .chp.achp25,
+.mc a.ch25d {
+  background: url('../../../assets/images/ch25d.png') 0 0 no-repeat;
+}
+.win_chip .chp.achp100,
+.mc a.ch100d {
+  background: url('../../../assets/images/ch100d.png') 0 0 no-repeat;
+}
+
+.mc .placebet {
+  position: absolute;
+  bottom: 0px;
+  width: 40px;
+  left: 0px;
+  min-height: 20px;
+  background: none;
+}
+.mc .passline-left-placebet {
+  bottom: 30px;
+  left: 21%;
+  width: 80px;
+}
+.mc .come-left-placebet {
+  bottom: 70px;
+  left: 70%;
+}
+.mc .first_to_home-placebet {
+  bottom: 124px;
+  left: 87%;
+  height: 50px;
+}
+.mc .first_to_home-placebet-multiple {
+  bottom: 104px !important;
+  left: 87% !important;
+}
+.mc .place_8_ways-placebet {
+  bottom: 144px;
+  left: 10%;
+}
+
+.mc .bb-placebet {
+  bottom: 38px;
+  left: 50%;
+  width: auto;
+  transform: translate(-50%, 0%);
+  -webkit-transform: translate(-50%, 0);
+}
+.mc .infield_fly-placebet {
+  bottom: 134px;
+  left: 32%;
+  width: auto;
+  transform: translate(-50%, 0%);
+  -webkit-transform: translate(-50%, 0);
+}
+.mc .ground_out-placebet {
+  bottom: 134px;
+  left: 68%;
+  width: auto;
+  transform: translate(-50%, 0%);
+  -webkit-transform: translate(-50%, 0);
+}
+.mc .k-placebet {
+  bottom: 134px;
+  left: 50%;
+  width: auto;
+  transform: translate(-50%, 0%);
+  -webkit-transform: translate(-50%, 0);
+}
+.mc .fly_out-placebet {
+  top: 85px;
+  left: 41%;
+  width: auto;
+  transform: translate(-50%, 0%);
+  -webkit-transform: translate(-50%, 0);
+}
+.mc .hit-placebet {
+  top: 83px;
+  left: 58%;
+  width: auto;
+  transform: translate(-50%, 0%);
+  -webkit-transform: translate(-50%, 0);
+}
+.mc .placebet a {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background-size: cover !important;
+  display: inline-block;
+  border-radius: 20px;
+  margin: 0;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+.mc a span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 8px;
+}
+.mc a.chp1 {
+  background: url('../../../assets/images/chp1l.png') 0 0 no-repeat;
+}
+.mc a.chp5 {
+  background: url('../../../assets/images/chp5l.png') 0 0 no-repeat;
+}
+.mc a.chp5 span {
+  color: #a31d1d;
+}
+.mc a.chp10 {
+  background: url('../../../assets/images/chp10l.png') 0 0 no-repeat;
+}
+.mc a.chp10 span {
+  color: #0e2e4f;
+}
+.mc a.chp25 {
+  background: url('../../../assets/images/chp25l.png') 0 0 no-repeat;
+}
+.mc a.chp25 span {
+  color: #1a701a;
+}
+.mc a.chp100 {
+  background: url('../../../assets/images/chp100l.png') 0 0 no-repeat;
+}
+.mc a.chp100 span {
+  color: #231f20;
+}
+.mc a.chpt {
+  z-index: 9999;
+  width: 60px;
+  height: 60px;
+  margin-left: -30px;
+  margin-top: -30px;
+  background-size: cover !important;
+  position: absolute;
+  border-radius: 40px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+.mc .passline-left-placebet a:nth-child(2) {
+  position: absolute;
+  top: 20px;
+  left: 26px;
+}
+.game_status {
+  display: block;
+  margin: 78px auto 7px;
+  width: 100%;
+  max-width: 343px;
+  height: 94px;
+  position: relative;
+  border-radius: 7px;
+  border: solid 2px #f44c57;
+  z-index: 999;
+}
+.game_status:before {
+  width: calc(100% - 2px);
+  border-radius: 5px;
+  content: ' ';
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: calc(100% - 2px);
+  border: 1px solid #fff;
+  background: #00182e;
+}
+.game_status .teams {
+  position: absolute;
+  top: 0px;
+  left: 1px;
+  width: calc(100% - 2px);
+}
+.game_status .teams .team {
+  width: 100%;
+  height: 28px;
+  display: block;
+}
+.game_status .teams .team .name {
+  line-height: 1em;
+  font-size: 16px;
+  font-family: 'Gotham Rounded';
+  color: #fff;
+  font-weight: 400;
+  margin: 7px 0 0 6px;
+  display: inline-block;
+  vertical-align: top;
+}
+.game_status .teams .team .run {
+  float: right;
+  font-size: 16px;
+  line-height: 1em;
+  font-family: 'Gotham Rounded';
+  color: #fff;
+  width: 15px;
+  margin: 7px 10px 0 0;
+}
+.game_status .teams .team:last-child {
+  margin-bottom: 0px;
+  border-top: 0.8px solid #1c3245;
+}
+.game_status .btnpropbets {
+  width: 92.1px;
+  height: 26.3px;
+  color: #fff;
+  font-size: 9px;
+  text-align: center;
+  text-transform: uppercase;
+  background: url('../../../assets/images/btnpropbets.svg') 0 0 no-repeat;
+  background-size: 100%;
+  padding-top: 6px;
+  position: absolute;
+  bottom: 0px;
+  left: 8px;
+}
+.game_status .box1 {
+  width: 100%;
+  max-width: 105px;
+  border-right: 1px solid #fff;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.game_status .inning {
+  position: absolute;
+  top: 1px;
+  left: 106px;
+  width: 100%;
+  max-width: 45px;
+  border-right: solid 0.8px #1c3245;
+  height: 44px;
+}
+.game_status .inning .val {
+  position: absolute;
+  font-size: 13px;
+  font-family: 'Gotham Rounded';
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  top: 50%;
+  transform: translate(0%, -50%);
+  -webkit-transform: translate(0, -50%);
+  margin-top: 2px;
+}
+.game_status .inning .arr {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0);
+}
+.game_status .inning .arr.up {
+  width: 0px;
+  height: 0px;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-bottom: 6px solid #1a324b;
+  top: 7px;
+}
+.game_status .inning .arr.up.active {
+  border-bottom-color: #f44c57;
+}
+.game_status .inning .arr.bottom {
+  width: 0px;
+  height: 0px;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-top: 6px solid #1a324b;
+  bottom: 7px;
+}
+.game_status .inning .arr.bottom.active {
+  border-top-color: #f44c57;
+}
+.play_result {
+  position: absolute;
+  right: 2px;
+  bottom: 0px;
+  height: 44.5px;
+  border-top: 1px solid #fff;
+  width: 100%;
+  max-width: 236px;
+  z-index: 99;
+}
+.play_result .it {
+  display: block;
+  clear: both;
+  margin: 3px 0 0px 0;
+}
+.play_result .it .lbl {
+  font-size: 9px;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: 'Gotham Rounded';
+  width: 53px;
+  text-align: right;
+  margin: 3px 0 0 10px;
+  float: left;
+}
+.play_result .it .val {
+  font-size: 11px;
+  font-weight: 500;
+  color: #fff;
+  height: 16px;
+  width: 100%;
+  max-width: 159px;
+  border-radius: 6px;
+  border: 1px solid #fdc231;
+  float: right;
+  margin: 0 3px 1px 0px;
+}
+.play_result .it .val span {
+  margin: 2px 0 0 2px;
+  display: inline-block;
+}
+.play_result .it .val.lp {
+  overflow-x: hidden;
+}
+.play_result .it .val.lp span {
+  width: 100%;
+  text-align: right;
+  animation: marquee 5s linear infinite;
+  white-space: nowrap;
+}
+.play_result .mdropdown {
+  position: relative;
+  width: 100%;
+  max-width: 159px;
+  float: right;
+}
+.play_result .mdropdown:after {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #fff;
+  content: ' ';
+  right: 9px;
+  top: 7px;
+}
+.play_result .last-play-items {
+  display: none;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.4);
+  position: absolute;
+  height: 110px;
+  background-color: #0b345a;
+  width: 100%;
+  top: 18px;
+  left: -4px;
+  overflow-y: scroll;
+  border-radius: 5px;
+}
+.play_result .last-play-items.active {
+  display: block;
+}
+.play_result .last-play-items ul {
+  display: block;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+.play_result .last-play-items ul li {
+  color: #fff;
+  font-size: 11px;
+  padding: 5px 10px;
+}
+.play_result .last-play-items ul li:nth-child(2n + 1) {
+  background-color: #2c4b6c;
+}
+.game_status .last_play span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  width: 180px;
+  height: 11px;
+}
+.game_status .play_status {
+  position: absolute;
+  left: 151px;
+  top: 1px;
+  width: 59px;
+  border-right: 0.8px solid #1c3245;
+  height: 43px;
+}
+.game_status .play_status .runners {
+  position: relative;
+  width: 31px;
+  height: 24px;
+  display: block;
+  margin: 5px auto 0;
+}
+.game_status .play_status .runners .b {
+  width: 11px;
+  height: 11px;
+  position: absolute;
+  z-index: 9;
+  background: #1a324b;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+.game_status .play_status .runners .b.active {
+  border: solid 0.2px #d2f094;
+  background-image: linear-gradient(to bottom, #8bb238, #bbeb59);
+}
+.game_status .play_status .runners .b.b1 {
+  right: 0px;
+  top: 10px;
+}
+.game_status .play_status .runners .b.b2 {
+  left: 10px;
+  top: 0px;
+}
+.game_status .play_status .runners .b.b3 {
+  left: 0px;
+  top: 10px;
+}
+.game_status .play_status .outs {
+  clear: both;
+  width: 100%;
+  float: left;
+  text-align: center;
+}
+.game_status .play_status .outs .o {
+  border-radius: 4px;
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  margin: 0 2px;
+  background: #1a324b;
+}
+.game_status .play_status .outs .o:first-child {
+  margin-left: 0px;
+}
+.game_status .play_status .outs .o:last-child {
+  margin-right: 0px;
+}
+.game_status .play_status .outs .o.active {
+  border: solid 0.5px #d2f094;
+  background-image: linear-gradient(to bottom, #8bb238, #bbeb59);
+}
+.game_status .player_status {
+  position: absolute;
+  left: 210px;
+  width: 66px;
+  top: 2px;
+  border-right: 0.8px solid #1c3245;
+  height: 43px;
+}
+.game_status .player_status span {
+  color: #fff;
+}
+.game_status .player_status .lb-s {
+  display: block;
+  font-size: 7px;
+  line-height: 1em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 10px;
+}
+.game_status .player_status .b-s {
+  display: block;
+  font-size: 16px;
+  line-height: 1em;
+  text-align: center;
+  font-family: 'Gotham Rounded';
+}
+.game_status .button_status {
+  position: absolute;
+  right: 0px;
+  width: 65.5px;
+  top: 2px;
+  height: 43px;
+}
+.game_status .button_status .button_post {
+  display: block;
+  margin: 10px auto;
+  max-width: 60px;
+}
+.game_status .button_status .button_post .lbl {
+  display: block;
+  font-size: 7px;
+  line-height: 1em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+}
+.game_status .button_status .button_post .val {
+  display: block;
+  font-size: 11px;
+  line-height: 1em;
+  text-align: center;
+  font-family: 'Gotham Rounded';
+  color: #fff;
+  margin-top: 3px;
+}
+.profiletab {
+  background-color: #00182e;
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0);
+  width: 100%;
+  max-width: 343px;
+  height: 90px;
+  border-radius: 7px;
+  border: 2px solid #1a324b;
+}
+.profile-cont {
+  float: left;
+  width: calc(100% - 2px);
+  /* height: 59px; */
+  border: 1px solid #fff;
+  border-radius: 6px;
+}
+.profile-img-cont {
+  width: 50px;
+  border-right: 1px solid #fff;
+  float: left;
+  height: 59px;
+  border-bottom: 1px solid #fff;
+}
+.profile-img-cont .profile-img {
+  width: 40px;
+  height: 40px;
+  background: #1f2a3d;
+  margin: 10px auto 0;
+}
+.profile-right {
+  float: right;
+  width: calc(100% - 51px);
+}
+.profile-right .profile-top {
+  width: 100%;
+  border-bottom: 1px solid #fff;
+  float: left;
+}
+.profile-right .clear-button-cont {
+  width: 62px;
+  border-right: solid 0.8px #1c3245;
+  float: left;
+  height: 28px;
+}
+.profile-right .clear-button-cont a {
+  width: 50px;
+  height: 33px;
+  background: url('../../../assets/images/btnclear@2x.png') center center
+    no-repeat;
+  display: block;
+  background-size: 34px;
+  margin: -10px auto 0px;
+  color: #fff;
+}
+.profile-right .clear-button-cont a.active {
+  border: 2px solid #ffd530;
+}
+.profile-right .clear-button-cont a span.t {
+  width: 50px;
+  height: 13px;
+  position: relative;
+  font-size: 7px;
+  text-align: center;
+  margin-top: 10px;
+  display: inline-block;
+  vertical-align: top;
+  opacity: 0.9;
+  border-radius: 5px;
+  border: 1px solid #cbe4ff;
+  background-image: linear-gradient(to bottom, #00182e, #0b345a);
+}
+.profile-right .clear-button-cont a span.t span {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 1px;
+  text-transform: uppercase;
+}
+.profile-right .clear-button-cont .lbl {
+  font-size: 9px;
+  font-family: 'Gotham Rounded';
+}
+.profile-right .profile-bottom {
+  width: 100%;
+  float: left;
+  border-bottom: 1px solid #fff;
+}
+
+.profile-right .profile-bottom .chip-value-cont {
+  width: 100%;
+  max-width: 158px;
+  border-right: 1px solid #1c3245;
+  height: 30px;
+  float: left;
+}
+.profile-right .profile-bottom .ranks .lbl,
+.profile-right .profile-bottom .chip-value-cont .lbl {
+  font-size: 9px;
+  color: #fff;
+  text-transform: uppercase;
+  margin: 10px 10px 0;
+  float: left;
+}
+.profile-right .profile-bottom .ranks .val,
+.profile-right .profile-bottom .chip-value-cont .val {
+  position: relative;
+  float: right;
+  width: 72px;
+  height: 18px;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 11px;
+  font-family: 'Gotham Rounded';
+  border: 1px solid #fdc231;
+  text-align: right;
+  margin: 5px 3px 0 0;
+}
+.profile-right .profile-bottom .chip-value-cont .val:before {
+  content: '$';
+  font-size: 11px;
+  color: #fff;
+  font-weight: 500;
+  position: absolute;
+  left: 5px;
+  top: 3px;
+}
+.profile-right .profile-bottom .chip-value-cont .val span {
+  font-weight: 500;
+  margin: 3px 5px 0 0;
+  display: inline-block;
+}
+.profile-right .profile-bottom .ranks {
+  width: 100%;
+  max-width: 131px;
+  float: right;
+  text-align: right;
+}
+
+.profile .scores {
+  float: right;
+  width: 72px;
+  margin: 11px 0 0 0;
+}
+.profile .scores span {
+  display: block;
+  width: 100px;
+  font-size: 7px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0px;
+}
+.profile .scores span:before {
+  margin-bottom: 0px;
+}
+
+.button_pos {
+  width: 32px;
+  height: 32px;
+  background: url('../../../assets/images/button_off.png') 0 0 no-repeat;
+  background-size: 100%;
+  position: absolute;
+  top: 11px;
+  left: 50%;
+  margin-left: -16px;
+}
+.button_pos.on {
+  background: url('../../../assets/images/button_on.png') 0 0 no-repeat;
+  background-size: 100%;
+}
+.button_pos.b_bb {
+  left: 56% !important;
+  top: 68%;
+}
+.button_pos.b_k {
+  left: 55% !important;
+  top: 55%;
+}
+.button_pos.b_ground_out {
+  left: 61% !important;
+  top: 55%;
+}
+.button_pos.b_infield_fly {
+  left: 38% !important;
+  top: 55%;
+}
+.button_pos.b_hit {
+  left: 74% !important;
+  top: 112px;
+}
+.button_pos.b_fly_out {
+  left: 24% !important;
+  top: 112px;
+}
+.ads {
+  margin-top: 5px;
+}
+.sponsor-logos {
+  max-width: 375px;
+  width: 100%;
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0);
+}
+.fantasy-logo {
+  float: left;
+  margin-left: 15px;
+}
+.sports-logo {
+  float: right;
+  margin-right: 15px;
+}
+.win_chip {
+  display: none;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+}
+.win_chip.active {
+  display: block;
+}
+.win_chip .chp {
+  right: 0px;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+}
+.win_chip .chp.achp1 {
+  background: url('../../../assets/images/ch1d.png') 0 0 no-repeat;
+  background-size: cover;
+}
+.win_chip .chp.achp5 {
+  background: url('../../../assets/images/ch5d.png') 0 0 no-repeat;
+  background-size: cover;
+}
+.win_chip .chp.achp10 {
+  background: url('../../../assets/images/ch10d.png') 0 0 no-repeat;
+  background-size: cover;
+}
+.win_chip .chp.achp25 {
+  background: url('../../../assets/images/ch25d.png') 0 0 no-repeat;
+  background-size: cover;
+}
+.win_chip .chp.achp100 {
+  background: url('../../../assets/images/ch100d.png') 0 0 no-repeat;
+  background-size: cover;
+}
+
+.first_base {
+  z-index: 999999;
+  position: fixed;
+  width: 200px;
+  height: 80px;
+  background: #fff;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  top: 50%;
+  right: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+  -webkit-transform: translate(100%, -50%);
+  transform: translate(100%, -50%);
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.first_base.active {
+  -webkit-transform: translate(0%, -50%);
+  transform: translate(0%, -50%);
+}
+.first_base img {
+  object-fit: cover;
+  width: 50px;
+  height: 50px;
+  object-position: center;
+  margin-right: 5px;
+}
+.first_base .text {
+  font-size: 11px;
+}
+.first_base .text p {
+  margin: 0px;
+  color: #231f20;
+  line-height: 1.2em;
+}
+
+.first_base_list {
+  z-index: 999999;
+  position: fixed;
+  width: 100px;
+  height: 20px;
+  background: #fff;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  top: 45%;
+  right: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 5px 5px 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+  -webkit-transform: translate(100%, -50%);
+  transform: translate(100%, -50%);
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.first_base_list.active {
+  -webkit-transform: translate(0%, -50%);
+  transform: translate(0%, -50%);
+}
+.first_base_list img {
+  object-fit: cover;
+  width: 20px;
+  height: 20px;
+  object-position: center;
+  margin-right: 5px;
+}
+.first_base_list .text {
+  font-size: 12px;
+  text-align: center;
+}
+.first_base_list .text p {
+  margin: 0px;
+  color: #231f20;
+  line-height: 1.2em;
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .game_status {
+    max-width: calc(100% - 30px);
+  }
+  .play_result {
+    max-width: calc(100% - 108px);
+  }
+  .play_result .it .val {
+    max-width: calc(100% - 80px);
+  }
+  .play_result .mdropdown {
+    max-width: calc(100% - 80px);
+  }
+  .play_result .mdropdown .val {
+    max-width: 100% !important;
+  }
+
+  .profiletab {
+    max-width: calc(100% - 30px);
+  }
+  .sponsor-logos {
+    max-width: calc(100% - 30px);
+  }
+  .mc .stadium {
+    max-width: calc(100% - 100px);
+  }
+  .mc .stadium img {
+    max-width: 100%;
+  }
+  .mc .stadium .come-left {
+    bottom: 20%;
+  }
+  .mc .stadium .passline-left {
+    bottom: 15%;
+  }
+  .mc .stadium .bb {
+    left: 46.2%;
+    bottom: 22%;
+  }
+  .mc .stadium .infield_fly,
+  .mc .stadium .ground_out {
+    bottom: 44%;
+  }
+  .mc .stadium .k {
+    bottom: 35%;
+    left: 46.2%;
+  }
+  .mc .stadium .fly_out,
+  .mc .stadium .hit {
+    top: 36%;
+  }
+
+  .mc .come-left-placebet {
+    bottom: 27%;
+  }
+  .mc .first_to_home-placebet {
+    bottom: 30%;
+  }
+  .mc .place_8_ways-placebet {
+    bottom: 30%;
+  }
+  .mc .infield_fly-placebet {
+    bottom: 43%;
+  }
+  .mc .passline-left-placebet {
+    bottom: 19%;
+  }
+  .mc .bb-placebet {
+    bottom: 23%;
+  }
+  .mc .infield_fly-placebet {
+    bottom: 44%;
+  }
+  .mc .ground_out-placebet {
+    bottom: 44%;
+  }
+  .mc .k-placebet {
+    bottom: 41%;
+  }
+  .mc .fly_out-placebet {
+    top: 30%;
+  }
+  .mc .hit-placebet {
+    top: 30%;
+  }
+
+  .button_pos.b_bb {
+    top: 71%;
+  }
+  .button_pos.b_k {
+    top: 58%;
+  }
+  .button_pos.b_fly_out,
+  .button_pos.b_hit {
+    top: 35% !important;
+  }
+}
+@keyframes marquee {
+  0% {
+    transform: translate(50%, 0);
+  }
+  100% {
+    transform: translate(-100%, 0);
+  }
+}
+
+@media screen and (display-mode: standalone) and (max-width: 375px) {
+  .stadium {
+    margin-top: 5px !important;
+    max-width: 375px !important;
+  }
+}
+
+@media screen and (display-mode: browser) and (max-width: 320px) {
+  /*.stadium{transform: scale(0.8);-webkit-transform:scale(0.8);margin-top:-40px!important}*/
+  /* .game_status{transform: scale(0.8);-webkit-transform:scale(0.8);margin-top:20px} */
+  .game_status {
+    max-width: 290px;
+  }
+  .profiletab {
+    transform: translate(-50%, 5px) scale(0.9);
+    -webkit-transform: translate(-50%, 5px) scale(0.9);
+  }
+}
+
+@media screen and (display-mode: standalone) and (max-width: 320px) {
+  /*.stadium{transform: scale(0.9);-webkit-transform:scale(0.9);margin-top:-20px!important}*/
+  /* .profiletab{transform: translate(-50%,5px) scale(0.85);-webkit-transform: translate(-50%,5px) scale(0.85);}*/
+}
+
+@media screen and (max-width: 320px) {
+  .mc .chipbuttons ul li {
+    margin: 0 2px;
+  }
+  .mc .stadium {
+    margin-top: 7px;
+  }
+  .profile-right .profile-bottom .chip-value-cont .lbl {
+    margin-left: 8px;
+  }
+  .profile-right .profile-bottom .chip-value-cont {
+    max-width: 135px;
+  }
+  .play_result {
+    max-width: 182px;
+  }
+  .play_result .it .val {
+    max-width: 109px;
+  }
+  .game_status .inning {
+    max-width: 20px;
+  }
+  .game_status .play_status {
+    max-width: 42px;
+    left: 128px;
+  }
+  .game_status .player_status {
+    width: 59px;
+    left: 171px;
+  }
+  .game_status .button_status {
+    width: 59.5px;
+  }
+  .profile-right .profile-bottom .chip-value-cont .val {
+    width: 53px;
+  }
+  .button_pos.b_hit {
+    top: 92px !important;
+  }
+  .button_pos.b_fly_out {
+    top: 92px !important;
+  }
+  .play_result .mdropdown {
+    max-width: 112px;
+  }
+  .sponsor-logos {
+    bottom: 90px;
+  }
+  .sponsor-logos .fantasy-logo,
+  .sponsor-logos .sports-logo {
+    max-width: 67px;
+  }
+  .button_pos.b_k {
+    left: 56% !important;
+  }
+  .mc .k-placebet {
+    bottom: 113px;
+  }
+}
+
+.loading-text {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 1;
+  font-size: 14px;
+  color: #fff;
+}
+
+.block {
+  display: block !important;
+}
+
+.amt_val {
+  position: absolute;
+  z-index: 1;
+  font-size: 20px;
+  font-weight: bold;
+  -webkit-text-stroke: .7px #ffffff;
+  opacity: 0;
+}
+
+.pos_8ways {
+  top: -30px;
+  left: -25px;
+}
+
+.pos_passline {
+  top: -40px;
+  left: -50px;
+}
+
+.pos_passline_odd {
+  top: -0px;
+  left: 50px;
+}
+
+.pos_hit {
+  top: -35px;
+  left: -25px;
+}
+
+.pos_hit_odd {
+  top: 15px;
+  left: 25px;
+}
+
+.pos_k {
+  top: -35px;
+  left: -30px;
+}
+
+.pos_k_odd {
+  top: 10px;
+  left: 30px;
+}
+
+.pos_come {
+  top: -35px;
+  left: -20px;
+}
+
+.pos_ground_out {
+  top: -35px;
+  left: -20px;
+}
+
+.pos_ground_out_odd {
+  top: 15px;
+  left: 20px;
+}
+
+.pos_infield_fly {
+  top: -35px;
+  left: -20px;
+}
+
+.pos_infield_fly_odd {
+  top: 15px;
+  left: 20px;
+}
+
+.pos_bb {
+  top: -35px;
+  left: -20px;
+}
+
+.pos_bb_odd {
+  top: 15px;
+  left: 20px;
+}
+
+.pos_flyout {
+  top: -35px;
+  left: -20px;
+}
+
+.pos_flyout_odd {
+  top: 15px;
+  left: 20px;
+}
+
+
+.yellow {
+  /* color: #FFD522; */
+  color: #083655;
+}
+
+.blue {
+  color: #083655;
+}
+
+.red {
+  color: #FA3E4A;
+}

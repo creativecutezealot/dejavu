@@ -1,0 +1,43 @@
+<div class="cont animated fast default-cont" [ngClass]="animateClass">
+
+    <div class="topbar default-topbar">
+      <a class="btnback-nav" (click)="onClose()"></a>
+      <img class="logo" src="../../../assets/images/inner-logo.png" />
+      <img class="dejavu" src="../../../assets/images/dejavu-logo.png" />
+    </div>
+    <div class="title-cont default-text-page-title">
+      
+      <img height="24.58" [src]="_page_title"/>
+    </div>
+
+    <div class="anim lists-container" [ngClass]="{'active':(current_page=='my-friends')}">
+        <div class="list-search-box anim" [ngClass]="{'active':(current_page=='my-friends')}">
+          <input type="text" placeholder="Search..." [(ngModel)]="txt_friends_search" (keyup)="onShowFriends()"/>
+        </div>
+        <ul *ngIf="user_friends">
+          <li *ngFor="let row of user_friends"><span>{{row.users.first_name}} {{row.users.last_name}}</span> <a class="btnunfriend" (click)="onUnfriend(row._id)">Unfriend</a></li>
+        </ul>
+        <a class="btndefault anim" [ngClass]="{'active':(current_page=='my-friends')}"  (click)="onAddFriend()">Add</a>
+    </div>
+    <div class="anim lists-container" [ngClass]="{'active':(current_page=='add-friend')}">
+      <div class="list-search-box anim" [ngClass]="{'active':(current_page=='add-friend')}">
+        <input type="text" [(ngModel)]="txt_search_users" placeholder="Search..." (keyup)="onSearchUsers($event)"/>
+      </div>
+      <ul *ngIf="user_search_results">
+        <li *ngFor="let row of user_search_results"><span>{{row.first_name}} {{row.last_name}}</span> 
+          <a *ngIf="!row.users_friends" (click)="onSendFriendRequest(row._id,row)">Add Friend</a> 
+          <span *ngIf="row.users_friends" class="status">
+              <span *ngIf="row.users_friends.status">Friends</span>
+              <span *ngIf="!row.users_friends.status">Request Sent</span>
+          </span>
+        </li>
+          
+       
+      </ul>
+      <a class="btndefault anim" [ngClass]="{'active':(current_page=='add-friend')}"  (click)="onCancelAddFriend()">Back</a>
+  </div>
+  
+
+</div>
+<!--end-->
+  

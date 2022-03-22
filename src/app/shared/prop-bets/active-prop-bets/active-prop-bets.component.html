@@ -1,0 +1,51 @@
+<div class="cont animated fast prop-bets" [ngClass]="animateClass">
+
+  <div class="topbar prop-bets-topbar">
+    <a class="btnback-nav" (click)="onClose()"></a>
+    <img class="logo" src="../../../assets/images/inner-logo.png" />
+    <img class="dejavu" src="../../../assets/images/dejavu-logo.png" />
+  </div>
+  <div class="title-cont">
+    <img src="../../../assets/images/active-prop-bets-title.svg" />
+  </div>
+
+  <div class="props-form">
+    <div class="sub-title">MY BETS</div>
+    <div class="anim lists-container">
+      <ul>
+        <li *ngFor="let row of myBets">
+          <span *ngIf="!row.is_freestyle" [ngStyle]="{
+            'font-weight': ((row.status==2) ? 'bold' : 'normal')
+          }">{{row.player_team_options.value}} {{row.will_result_in}}
+            ({{row.with_timeframe}})</span>
+          <span *ngIf="row.is_freestyle" [ngStyle]="{
+            'font-weight': ((row.status==2) ? 'bold' : 'normal')
+          }">{{row.event}}</span>
+          <span><a (click)="onDetails('my_bets', row)">Details</a></span><br />
+        </li>
+      </ul>
+    </div>
+    <div class="sub-title">ACCEPTED BETS</div>
+    <div class="anim lists-container">
+      <ul>
+        <li *ngFor="let row of acceptedBets">
+          <span *ngIf="!row.is_freestyle">{{row.player_team_options.value}} {{row.will_result_in}}
+            ({{row.with_timeframe}})</span>
+          <span *ngIf="row.is_freestyle">{{row.event}}</span>
+          <span><a (click)="onDetails('accepted_bets', row)">Details</a></span><br />
+        </li>
+      </ul>
+    </div>
+    <div class="sub-title">TO JUDGE</div>
+    <div class="anim lists-container">
+      <ul>
+        <li *ngFor="let row of judgeBets">
+          <span *ngIf="row.is_freestyle">{{row.event}}</span>
+          <span><a (click)="onDetails('judge_bets', row)">Details</a></span><br />
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!--end--->
+</div>
+<!--end-->

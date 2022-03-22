@@ -1,0 +1,8 @@
+{
+  "name": "Baseballcraps",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

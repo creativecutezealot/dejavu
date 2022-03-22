@@ -1,0 +1,28 @@
+<div class="create-account">
+  <div class="row cont animated" [ngClass]="boxClass">
+    <div class="ic animated delay-1s">
+      <form [formGroup]="dataForm" (ngSubmit)="onSubmit()">
+        <a class="close" (click)="onClose()"></a>
+        <h3>Edit Profile</h3>
+        <div class="fld">
+          <label>First Name</label>
+          <div class="fld_c"><input id="first_name" autocomplete="off" type="text" formControlName="first_name" /></div>
+        </div>
+        <div class="fld">
+          <label>Last Name</label>
+          <div class="fld_c"><input id="last_name" autocomplete="off" type="text" formControlName="last_name" /></div>
+        </div>
+        <div class="fld">
+          <label>Email</label>
+          <div class="fld_c"><input type="email" autocomplete="off" formControlName="email" /></div>
+        </div>
+        <div class="fld">
+          <label>Display Name</label>
+          <div class="fld_c"><input id="display_name" autocomplete="off" type="text" formControlName="display_name" />
+          </div>
+        </div>
+        <button type="submit" [disabled]="!dataForm.valid"></button>
+      </form>
+    </div>
+  </div>
+</div>

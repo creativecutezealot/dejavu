@@ -1,0 +1,34 @@
+<div class="boxtable animated scores-box" [ngClass]="boxClass">
+    <div class="ic">
+      <a (click)="onClose($event)" class="btnclose"></a>
+      <span class="title">Odds Rules</span>
+      <div class="hdr">
+        <span class="col rank">Target Play</span>
+        <span class="col uname">Odds Payout</span>
+        <!-- <span class="col mon">Odds Active For</span> -->
+        <span class="col mon">Exceptions (Bets Returned)</span>
+      </div>
+      <div class="items" id="scrollview_scores">
+        <div id="scrollcontainer_scores">
+  
+          <div class="item" *ngFor="let o of oddRules">
+            <span class="col rank text-center">{{ o.play }}</span>
+            <span class="col uname text-center">{{ o.payout }}</span>
+            <!-- <span class="col mon text-center">{{ o.active }}</span> -->
+            <span class="col mon text-center">{{ o.exceptions }}</span>
+          </div>
+          <!--end-->
+        </div>
+        <!--scrollcontainrer-->
+      </div>
+      <!--end-->
+      <!-- <app-scrollbar *ngIf="loaded" top="61" height="246" scrollview="scrollview_scores"
+        scrollcontainer="scrollcontainer_scores"></app-scrollbar> -->
+      <!-- <a (click)="onReload($event)" class="btnreload">Reload</a> -->
+  
+      <!-- <div class="profile">
+        <div class="scores">
+        </div>
+      </div> -->
+    </div>
+    </div>

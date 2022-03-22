@@ -1,0 +1,81 @@
+<div class="box howtoplay-box">
+        <div class="row cont animated" [ngClass]="boxClass">
+          <div class="ic animated delay-1s">
+                <a class="close" (click)="onClose()"></a>
+                <h3>How to Play</h3>
+                <div class="content" id="scrollview_how_to_play">
+                    <div class="scrollcontainer" id="scrollcontainer_how_to_play">
+                        <div class="page">
+                            <p>If you would like to see video tutorials on YouTube, click <a target="_blank" href="https://www.youtube.com/playlist?list=PLwsgAPcAMyIfjTHMuUfWcvGNrDxY_shAe">here</a></p>
+                            <p>Do you know how to play Casino Craps (Dice Craps)? If so, click here (link to ***COMPARISON TO CASINO CRAPS lower on this document)&nbsp;</p>
+                            <p><strong>GENERAL INSTRUCTIONS</strong></p>
+                            <p>Baseball Craps is a game where each player will accrue points based on the recurrence of specific plays during a half inning of a live baseball game.</p>
+                            <p>Each half inning will begin with the baseball shaped button in the OFF position <img src="../../../assets/images/button_off.png" width="35" height="35" /></p>
+                            <p><strong>PASS LINE:</strong></p>
+                            <p>While the button is in the OFF position, gameplay is initiated by touching/clicking and dragging chips to the Pass Line spot that is illuminated upon selecting the chip.&nbsp; Chips values ($) correspond to a player&rsquo;s point score on a 1:1 basis.</p>
+                            <p>When one of the specific Target Plays occurs in the baseball game (Strikeout (K), Walk (BB), Fly Out, Hit, Ground Out, Infield Fly Out), the button is moved to the ON position at the location of that play. The play designated by the button in the ON position is referred to as the Point. <img src="../../../assets/images/button_on.png" width="36" height="36" /></p>
+                            <p>If the Point play occurs again before the end of the 3-out half inning, the Pass Line bet has won and the player will be awarded an equal number of chips as was placed.</p>
+                            <p>Upon a winning Point, the button will revert back to the OFF position.</p>
+                            <p>If the 3-out inning concludes without the Point recurring, the Pass Line chips are removed, the corresponding points are lost, and the button will revert back to the OFF position to start the next inning.</p>
+                            <p><strong>ODDS:</strong></p>
+                            <p>While the button is in the ON position, a player may add to their Pass Line play an additional amount of chips up to 3X their initial play.&nbsp; This is done by touching/clicking and dragging chips to the Pass Line spot that is illuminated red or by tapping the chips already on the Pass Line. The additional chips are called Odds and upon winning, will be awarded additional points based on the likelihood of the Target Play recurring. These odds are listed on each Target Play&rsquo;s label on the game board.&nbsp; Odds may be updated to most accurately reflect actual gameplay results, but currently points are awarded based on the following schedule:</p>
+                            <ul>
+                            <li>Strikeout (K): Player is awarded 6 points for each 5 points played as Odds</li>
+                            <li>Ground Out: Player is awarded 6 points for each 5 points played as Odds</li>
+                            <li>Hit: Player is awarded 7 points for each 5 points played as Odds</li>
+                            <li>Fly Out: Player is awarded 7 points for each 5 points played as Odds</li>
+                            <li>Walk (BB): Player is awarded 2 points for each 1 point played as Odds</li>
+                            <li>Infield Fly: Player is awarded 2 points for each 1 point played as Odds</li>
+                            </ul>
+                            <p><strong>COME LINE:</strong></p>
+                            <p>While the button is in the ON position, a player may choose to place chips on the Come Line.&nbsp; Come Line play is similar to the Pass Line play but can be done when the button is in the ON position.&nbsp; After the Come Line chips are placed, the next Target Play that occurs will be the Point for those chips.&nbsp; The chips will move to the corresponding location of that play and if the play recurs before the 3-out inning ends, the Come Line has won.</p>
+                            <p>As with the Pass Line, a player may add an additional amount of Odds chips up to 3X their initial Come Line play. This is done by tapping the chips once they have been moved to the Target Play or dragging chips to the area illuminated red next to the Come bet chips. Upon winning, the Odds chips will be awarded points based on the same schedule as the Pass Line (see above).</p>
+                            <p><strong>2 OUT RULE:</strong></p>
+                            <p>If an active Pass Line bet is on a Point play that represents an out (Strikeout, Ground Out, Infield Fly, Fly Out) AND a Come Line bet is placed that results in another out play, a situation will exist where the Pass Line and Come line bets can&rsquo;t both win.&nbsp; Therefore, the player will be given a choice as to which play will remain active for that half inning. The other bet will be removed and the points returned to the player. Regardless of the Pass Line vs Come Line decision, the player may place a new Come Line bet for the next play.</p>
+                            <p><strong>8 WAYS:</strong></p>
+                            <p>The 8 Ways bet is active when a player starts their at bat and is available through the player having up to one strike and one ball.&nbsp; The bet is that the player will reach base, as there are 8 Ways possible to do so (Hit, Walk, Hit By Pitch, Fielder&rsquo;s Choice, Reach on an Error, Strikeout with Pass Ball, Catcher&rsquo;s Interference, Fielder&rsquo;s Interference).&nbsp; The bet is specific to the player at bat when the bet is placed. If a player is intentionally walked, the bet is NULL and the chips will be returned. A winning bet will be awarded 6 points for every 5 that are bet.</p>
+                            <p><strong>FIRST TO HOME:</strong></p>
+                            <p>The First To Home bet is active when a player is on first base.&nbsp; The bet is that the player will reach home rather than be left stranded on base.&nbsp; The bet is specific to the player on first base when the bet is placed. If a new player reaches first and the original player is still on base, another bet can be placed.&nbsp; A winning bet will be awarded 1 point for every 1 point bet.</p>
+                            <p><strong>PROP BETS:</strong></p>
+                            <p>This feature has not yet been added, but when available, it will allow person to person bets with specific outcomes, timeframes and odds.&nbsp; This will extend the opportunity to win points beyond the Game Board because wager wins/losses will be transferred directly from player to player</p>
+                            <p><strong>COMPARISON TO CASINO CRAPS</strong></p>
+                            <p>Baseball Craps is very similar to easiest parts of Casino Craps, with the dice simply being replaced with plays of a live baseball game.&nbsp; In a typical Craps game, the button would start in the OFF position for a new roller and a point number would be established by their roll.&nbsp; The button would then be placed ON that number and the Pass Line bet would win if that number is rolled again before a &ldquo;crap out seven&rdquo;. In Baseball Craps, the button starts in the OFF position at the beginning of every half inning (which is every time the teams switch fielding vs batting). Chips must be placed on the Pass Line before that player has completed their at bat.&nbsp; The result of that at bat will determine which of the 6 Target Plays that the button is moved ON to (Strikeout, Walk, Fly Out, Hit, Infield Fly, Ground Out) and the Pass Line bet will win if that type of play occurs before the end of the inning.</p>
+                            <p>Come Line bets work just like in Casino Craps, as in they are the same as Pass Line bets, but occur after the button is already in the ON position.</p>
+                            <p>Pass Line and Come Line odds work the same as in Casino Craps</p>
+                            <p>Think of the First To Home and 8 Ways bets as similar to inside bets on the Craps table like the hard ways or The Field.</p>
+                            <p>The First To Home bet is active when a player is on first base.&nbsp; The bet is that the player will reach home rather than be left stranded on base.&nbsp; The bet is specific to the player on first base when the bet is placed. If a new player reaches first and the original player is still on base, another bet can be placed.&nbsp; A winning bet will be awarded 1 point for every 1 point bet.</p>
+                            <p>The 8 Ways bet is active when a player starts their at bat and is available through the player having up to one strike and 1 ball.&nbsp; The bet is that the player will reach base, as there are 8 Ways possible to do so (Hit, Walk, Hit By Pitch, Fielder&rsquo;s Choice, Reach on an Error, Strikeout with Pass Ball, Catcher&rsquo;s Interference, Fielder&rsquo;s Interference).&nbsp; The bet is specific to the player at bat when the bet is placed. If a player is intentionally walked, the bet is NULL and the chips will be returned. A winning bet will be awarded 6 points for every 5 that are bet.&nbsp;</p>
+                            <p><strong>Notable Differences:&nbsp;</strong></p>
+                            <ol>
+                            <li>There are no placed bets in Baseball Craps, meaning that you can&rsquo;t bet specific outcomes of upcoming at bats.&nbsp; The reason for this is that the odds for each play of each at bat would change drastically depending on the specific batter and game situation.&nbsp; Seriously, do you think a game like this would allow you to bet &ldquo;Walk&rdquo; when an obvious intentional walk situation was upcoming?</li>
+                            <li>There is no automatic wins or losses when the button is OFF.&nbsp; This may change in upcoming versions because who doesn&rsquo;t love the thrill of a YO eleven or getting paid on a seven. Maybe every pass line bet should win on a lead off Home Run? Don&rsquo;t worry, we&rsquo;re thinking about it.&nbsp; However, there are situations where the lead off batter may not create a Target Play (i.e. reaching on an error) and the Pass Line bets will not automatically lose. At least not yet&hellip;&nbsp;</li>
+                            <li>There is no Don&rsquo;t Pass Bar.&nbsp; Again, this may change in future versions, but we need to get all of the statistics figured out first.</li>
+                            </ol>
+                            <p><strong>RULES</strong></p>
+                            <p>Chips cannot be placed on specific plays.</p>
+                            <p>Pass Line and Come Line chips cannot be removed once their Point has been established.&nbsp; These bets are now considered Active Bets</p>
+                            <p>Due to overlap and confusion of the multitude of possible baseball plays, here are common plays and how they will be treated by the game:</p>
+                            <ul>
+                            <li>Hit By Pitch = Walk</li>
+                            <li>Catchers Interference = Walk</li>
+                            <li>Single, Double, Triple, HR = Hit</li>
+                            <li>Fielder&rsquo;s Choice = Ground Out</li>
+                            <li>Fielding Error = NULL</li>
+                            </ul>
+                            <p>Each player will start with 100 points</p>
+                            <p>Mistakes: This is bound to occur from time to time because our game relies on a play-by-play feed which could be inaccurate. In our perspective, a mistake could cause you to lose a bet you should have won, but could just as likely cause you to NOT lose a bet you should have lost or maybe even win it. We hope these situations balance out well, but if you feel that you were truly cheated, please send a detailed email with the game, inning, play and error to admin@dejavusports.com and we will review the data and remedy the situation if possible.</p>
+                            <p><strong>SCORING AND PRIZES</strong></p>
+                            <p>We are exploring multiple different scoring and prize options.&nbsp; These decisions will be based on feedback from our users and adherence to local, state and federal laws.&nbsp; For now, all scoring is points based and points have no monetary value.</p>
+                            <p><strong>COMMITMENT TO FAIRNESS</strong></p>
+                            <p>D&eacute;j&agrave; Vu Sports LLC is committed to treating our users fairly.&nbsp; No user will ever be given special treatment, no points will be awarded outside of the game, and all odds are intended to keep the game fun, challenging and fair. It is our objective to make the game as fair as possible by choosing odds that will give any player an acceptable chance of winning, while rewarding players who can skillfully optimize a winning strategy.&nbsp; The odds for this game were determined by simulating a sample of over 100,000 plays from past Major League baseball innings/games. The results were rounded to the more standard &ldquo;odds&rdquo; payouts that can be seen on the gameboard. However, as new data becomes available through actual Baseball Craps gameplay, we will update the odds to most accurately reflect real life.</p>
+                            <p>Our commitment to fairness extends to our users as well.&nbsp; We expect our users to play the game as intended and cheating will not be tolerated.&nbsp; If you expect a user of cheating, please report them to <a href="mailto:admin@dejavusports.com">admin@dejavusports.com</a> and their gameplay will be reviewed.&nbsp; Any player found cheating will be removed from the platform.</p>
+                            </div><!--end--->
+                    </div>           
+                </div>  
+                         
+                <app-scrollbar *ngIf="loaded" [top]="130" [height]="350" scrollview="scrollview_how_to_play" scrollcontainer="scrollcontainer_how_to_play"></app-scrollbar>
+          </div>
+        </div>
+      </div>
+      
+      

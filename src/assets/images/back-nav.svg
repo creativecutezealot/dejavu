@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="Group_316" width="63" height="63" data-name="Group 316" viewBox="0 0 63 63">
+    <defs>
+        <style>
+            .cls-1{fill:rgba(0,15,29,0)}.cls-2{fill:#fff}
+        </style>
+    </defs>
+    <path id="Rectangle_36" d="M0 0h63v63H0z" class="cls-1" data-name="Rectangle 36"/>
+    <rect id="Rectangle_34" width="14" height="4" class="cls-2" data-name="Rectangle 34" rx="2" transform="rotate(45 -22.214 48.385)"/>
+    <rect id="Rectangle_35" width="15" height="4" class="cls-2" data-name="Rectangle 35" rx="2" transform="rotate(-45 50.713 -13.178)"/>
+</svg>

@@ -1,0 +1,19 @@
+<div class="inner" *ngIf="!has_popup">
+    <img class="row logo animated" [ngClass]="!init_page?'mbn_anim':'jackInTheBox'" src="/assets/images/logo01.png"/>
+    <form class="row form animated delay-1s" [ngClass]="!init_page?'mbn_anim':'fadeInUp'" [formGroup]="dataForm" (ngSubmit)="onLogin()">
+        <input type="text" [value]="username?username:''" formControlName="email" placeholder="Email" />
+        <input type="password" [value]="password?password:''" formControlName="password" placeholder="Password" />
+        <div class="info">
+            <label [ngClass]="remember?'active':''"><input type="checkbox" (change)="onRemember($event)" formControlName="remember" value="1"/> Remember</label>
+            <a class="forgot" (click)="onForgotPassword()">Forgot Password</a>
+        </div>
+        <button type="submit"></button>
+    </form>
+   
+    <div class="row create animated delay-2s" [ngClass]="!init_page?'mbn_anim':'fadeInUp'">
+        <span class="lbl">Don't have Account?</span>
+        <a (click)="onCreateAccount()">Create Account</a>
+    </div>
+</div>
+<app-create-account></app-create-account>
+<app-forgot-password *ngIf="show_forgot_password" (closed)="onCloaseForgotPassword()"></app-forgot-password>

@@ -1,0 +1,6 @@
+/node_modules
+/dist
+.env
+/.temp-chrome-user-data
+.DS_Store
+package-lock.json

@@ -1,0 +1,18 @@
+<div class="cont animated fast default-cont" [ngClass]="animateClass">
+
+    <div class="topbar default-topbar">
+      <a class="btnback-nav" (click)="onClose()"></a>
+      <img class="logo" src="../../../assets/images/inner-logo.png" />
+      <img class="dejavu" src="../../../assets/images/dejavu-logo.png" />
+    </div>
+    <div class="title-cont default-text-page-title">
+    
+      <img [src]="_page_title" height="24.58"/>
+    </div>
+
+    <app-groups-list [events]="_groups_events" (create)="onAddGroup()" (show_members)="onShowMembers($event)"></app-groups-list>
+    <app-groups-create [events]="_groups_create_events" (closed)="onClose()"></app-groups-create>
+    <app-groups-members [events]="_groups_members_events" (invite)="onInvite($event)" (closed)="onClose()"></app-groups-members>
+    <app-groups-members-invite [events]="_groups_members_invite_events" (closed)="onClose()"></app-groups-members-invite>
+
+</div><!--end--->

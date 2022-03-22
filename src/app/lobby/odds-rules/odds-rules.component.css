@@ -1,0 +1,202 @@
+.boxtable {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: rgba(red, green, blue, alpha);
+}
+
+.boxtable:before {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 120%;
+  content: " ";
+  background: rgb(20, 68, 130);
+  background: -moz-linear-gradient(
+    top,
+    rgb(20, 68, 130) 0%,
+    rgb(0, 25, 47) 100%
+  );
+  background: -webkit-linear-gradient(
+    top,
+    rgb(20, 68, 130) 0%,
+    rgb(0, 25, 47) 100%
+  );
+  background: linear-gradient(
+    to bottom,
+    rgb(20, 68, 130) 0%,
+    rgb(0, 25, 47) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#144482', endColorstr='#00192f',GradientType=0 );
+  opacity: 0.7;
+  margin-top: -10%;
+}
+.boxtable .ic {
+  background: url("../../../assets/images/scoresbg.svg") center top no-repeat;
+  background-size: cover;
+  width: 400px;
+  height: 475px;
+  position: absolute;
+  top: 118px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0);
+}
+.boxtable .title {
+  text-transform: uppercase;
+  color: #fff;
+  display: block;
+  font-weight: 700;
+  text-align: center;
+  font-size: 15px;
+  padding: 4px 0px;
+  margin-top: 10px;
+}
+.boxtable #scrollcontainer_scores {
+  display: block;
+  float: left;
+}
+.boxtable .items {
+  display: block;
+  width: 310px;
+  height: 445px;
+  overflow-y: scroll;
+  margin: 15px 0 0 40px;
+}
+.boxtable .btnclose {
+  width: 32px;
+  height: 33px;
+  background: url("../../../assets/images/popup_close.png") 0 0 no-repeat;
+  background-size: 100%;
+  position: absolute;
+  right: 15px;
+top: 20px;
+}
+.boxtable .hdr {
+  width: 310px;
+  margin: 35px 0 0 40px;
+  background: rgba(49, 91, 133, 0);
+  color: #fff;
+  font-size: 10px;
+  float: left;
+  padding: 12px 5px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.boxtable .items .item {
+  background: rgba(49, 91, 133, 0.5);
+  width: 310px;
+  float: left;
+  padding: 12px 5px;
+}
+.boxtable .items .item:nth-child(2n + 1) {
+  background: rgba(184, 188, 223, 0.3);
+}
+.boxtable .items .hdr .col {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.boxtable .hdr .col {
+  width: 100%;
+  color: #fff;
+  float: left;
+}
+.boxtable .items .col {
+  width: 100%;
+  color: #fff;
+  font-size: 12px;
+  float: left;
+}
+.boxtable .hdr .col.rank,
+.boxtable .items .col.rank {
+  max-width: 100px;
+  text-align: center;
+}
+.boxtable .hdr .col.uname,
+.boxtable .items .col.uname {
+  max-width: 100px;
+  text-align: center;
+}
+.boxtable .hdr .col.mon,
+.boxtable .items .col.mon {
+  max-width: 80px;
+  text-align: center;
+}
+.profile {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0);
+  width: 220px;
+  height: 80px;
+  background: url("../../../assets/images/profilebg.png") 0 0 no-repeat;
+  background-size: 100%;
+}
+.profile .scores {
+  float: right;
+  width: 126px;
+  margin: 19px 0 0 0;
+}
+.profile .scores span {
+  display: block;
+  width: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 6px;
+}
+.scrollbar {
+  top: 61px !important;
+  right: 20px !important;
+}
+
+@media screen and (display-mode: browser) and (max-width: 414px) {
+  .profile {
+    transform: translate(-50%, 0) scale(0.78);
+    -webkit-transform: translate(-50%, 0) scale(0.78);
+    bottom: -100px;
+  }
+}
+
+@media screen and (display-mode: browser) and (max-width: 375px) {
+  .profile {
+    transform: translate(-50%, 0) scale(0.78);
+    -webkit-transform: translate(-50%, 0) scale(0.78);
+    bottom: -100px;
+  }
+  .boxtable .ic {
+    transform: translate(-50%, 0) scale(0.78);
+    -webkit-transform: translate(-50%, 0) scale(0.78);
+    top: 80px;
+  }
+}
+@media screen and (display-mode: browser) and (max-width: 320px) {
+  .profile {
+    transform: translate(-50%, 0) scale(1);
+    -webkit-transform: translate(-50%, 0) scale(1);
+    bottom: -120px;
+  }
+  .boxtable .ic {
+    transform: translate(-50%, 0) scale(0.75);
+    -webkit-transform: translate(-50%, 0) scale(0.75);
+    top: 40px;
+  }
+}
+
+@media screen and (display-mode: standalone) and (max-width: 320px) {
+  .profile {
+    transform: translate(-50%, 0) scale(1);
+    -webkit-transform: translate(-50%, 0) scale(1);
+    bottom: -120px;
+  }
+  .boxtable .ic {
+    transform: translate(-50%, 0) scale(0.75);
+    -webkit-transform: translate(-50%, 0) scale(0.75);
+    top: 40px;
+  }
+}

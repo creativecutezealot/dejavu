@@ -1,0 +1,32 @@
+<div class="overlay" *ngIf="alertbox.status">
+  <div class="box animated" [ngClass]="alertbox.status?'rubberBand':'mbn_anim'">
+    <a *ngIf="!alertbox.hideCloseButton" class="close" (click)="onClose()"></a>
+    <h3 *ngIf="alertbox.title">{{alertbox.title}}</h3>
+    <p [ngClass]="alertbox.messageClass" *ngIf="alertbox.message">{{alertbox.message}}</p>
+    <a *ngIf="alertbox.hasButton" (click)="onClose()" class="btndef">{{alertbox.button_ok}}</a>
+
+    <!-- 2out rule button -->
+    <a *ngIf="alertbox.type == '2out' && passlinePlay" (click)="removeBet('passline')" class="passline">{{
+      passlinePlay.toUpperCase() }}</a>
+    <a *ngIf="alertbox.type == '2out' && place" (click)="removeBet('come')" class="come">{{ place.toUpperCase() }}</a>
+    <p *ngIf="removingBet">Removing bet...</p>
+
+    <a *ngIf="alertbox.type == 'add_chips'" (click)="addChips()" class="passline">{{ addingChip ? 'Adding...': 'Add'
+      }}</a>
+
+    <a *ngIf="alertbox.type == 'add_diamonds'" (click)="addDiamonds()" class="passline">{{ addingDiamonds ? 'Adding...': 'Add'
+      }}</a>
+
+    <!-- delete-account button -->
+    <a *ngIf="alertbox.type == 'delete-account'" (click)="removeAccount()" class="passline">Yes</a>
+    <a *ngIf="alertbox.type == 'delete-account'" (click)="onClose()" class="come">Cancel</a>
+    <p *ngIf="deletingAcct">Deleting account...</p>
+    <div class="fields" *ngIf="alertbox.hasField==true">
+      <label>{{alertbox.subtitle}}</label>
+      <p class="err_msg">{{alertbox.err_msg}}</p>
+      <input id="txtfield" class="txt" [type]="alertbox.fieldType" [placeholder]="alertbox.fieldPlaceholder"
+        [value]="alertbox.fieldValue" (keyup)="onKeyUp($event)" />
+      <input type="button" class="btn" (click)="onSubmit($event)" [value]="alertbox.buttonLabel" />
+    </div>
+  </div>
+</div>

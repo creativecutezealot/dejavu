@@ -1,0 +1,35 @@
+<div class="cont animated fast default-cont" [ngClass]="animateClass">
+
+  <div class="topbar default-topbar">
+    <a class="btnback-nav" (click)="onClose()"></a>
+    <img class="logo" src="../../../assets/images/inner-logo.png" />
+    <img class="dejavu" src="../../../assets/images/dejavu-logo.png" />
+  </div>
+  <div class="title-cont default-text-page-title">
+    <img height="24.58" [src]="_page_title" />
+  </div>
+
+  <div class="anim lists-container" [ngClass]="{'active':(current_page=='my-contests')}">
+    <div class="list-search-box anim" [ngClass]="{'active':(current_page=='my-contests')}">
+      <input type="text" placeholder="Search..." />
+    </div>
+
+    <ul *ngIf="myContests">
+      <!-- <li>
+            <span>Name</span>
+            <span>Start Date</span>
+          </li> -->
+      <li *ngFor="let row of myContests" (click)="onMenuClick('contest-single', row.contest_id)">
+        <span
+          [ngClass]="{'contest-name': true, 'bold':(userId==row.contests[0].user_id)}">{{row.contests[0].name}}</span>
+        <span
+          [ngClass]="{'bold':(userId==row.contests[0].user_id), 'contest-status-completed':(row.statusLabel == 'Completed'), 'contest-status-live':(row.statusLabel == 'Live'), 'contest-status-scheduled':(row.statusLabel == 'Scheduled')}">{{row.statusLabel}}</span><br />
+        <!-- <span>{{ row.contests[0].start_date | date:medium }}</span> -->
+      </li>
+    </ul>
+    <a class="btndefault anim" [ngClass]="{'active':(current_page=='my-contests')}"
+      (click)="onMenuClick('add-contest')">Add</a>
+  </div>
+
+</div>
+<!--end-->

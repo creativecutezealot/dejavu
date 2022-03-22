@@ -1,0 +1,16 @@
+<div class="anim lists-container" [ngClass]="{'active':_status}">
+    <div class="list-search-box anim" [ngClass]="{'active':_status}">
+      <input type="text" placeholder="Search..." [(ngModel)]="_txt_member_search" (keyup)="onShowMembers()"/>
+    </div>
+    <ul *ngIf="_groups_members">
+      <li *ngFor="let row of _groups_members"><span>{{row.users.first_name}} {{row.users.last_name}}</span>
+        
+        <a *ngIf="row.users.is_owner==true && _current_user_id!=row.users._id" class="btnremove" (click)="onRemove(row._id)">Remove</a>
+        
+      </li>
+    </ul>
+   <div class="buttons-groups">
+    <a class="btndefault anim" [ngClass]="{'active':_status}" (click)="onLeave()">Leave</a>
+    <a class="btndefault anim" [ngClass]="{'active':_status}" (click)="onInvite()">Invite</a>
+   </div>
+</div> 

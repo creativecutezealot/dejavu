@@ -1,0 +1,21 @@
+.top{display:flex;width:100%;position: relative;z-index: 1;}
+.top .logo{max-width:106.92px;position: absolute;left:50%;top:10px;transform: translate(-50%,0);-webkit-transform: translate(-50%,0);}
+.top .btnleader{width:88.77px;height:29.7px;background:url("../../assets/images/btnleaderboard.png") 0 0  no-repeat;background-size:100%;position:absolute;right:0px;top:17px;margin:2px 20px 0 0}
+.top .btnleader.active{opacity:0.28;}
+
+
+
+
+@media screen and (max-width:320px){
+
+    .top .logo{max-width:70px}
+    .btabs a{margin:-0 5px}
+
+    .profile-ic{margin-top:12px}
+}
+
+
+@media screen and (display-mode: browser) and (max-width: 320px){
+    .top .logo{max-width: 60px}
+    .top .btnleader{max-width:60px;}
+}

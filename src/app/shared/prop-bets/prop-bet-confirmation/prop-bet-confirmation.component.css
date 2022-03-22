@@ -1,0 +1,60 @@
+.create-account{position: absolute;top:0px;left:0px;z-index:999;width:100%;height:100%}
+.create-account .cont{max-width:330px;height:614px;background:url("../../../../assets/images/sign-up-bg.png") center top no-repeat;background-size:100% auto;margin:20px auto;}
+.ic{float:left;margin-top:0px;width:100%;position: relative;}
+h3{display:block;margin:91px auto 21px;color:#fff;font-size:18px;font-family:"Gotham";text-align:center;text-transform:uppercase;}
+.fld{margin:0 37px 7px}
+.fld label{color:#fff;font-style:italic;font-size:14px;margin: 0 0 10px 5px;display:block}
+.fld .fld_c{background:url("../../../../assets/images/border-bg.jpg") 0 0 no-repeat;width:100%;height:40px;border-radius:50px;padding:2px;background-size:100% 100%;position: relative;}
+.fld .fld_c.sel:after{position: absolute;width:20px;height:20px;right:15px;top:12px;background:url("../../../../assets/images/sel_arrow.jpg") 0 0 no-repeat;content:" ";background-size:100%;}
+.fld textarea,
+.fld input[type="text"]{font-size:16px;width:calc(100% - 30px);height:40px;background:#00192f;border:none;color:#fff;padding:0 15px;border-radius:20px}
+button{width: 126.39px;height:32.56px;display:block;margin:20px 10px 0;border:none;border-radius: 5px;cursor:pointer}
+button[disabled]{opacity:0.5}
+.close{position: absolute;top:42px;right:0px;width:40px;height:42px;background:url("../../../../assets/images/popup_close.png") 0 0 no-repeat;background-size:100%}
+
+
+
+@media screen and (display-mode: browser) and (max-width: 375px){
+ 
+    .create-account .cont{max-width:280px;}
+    .fld label{margin-bottom:5px}
+    .fld textarea,
+    .fld input[type="text"]{height:32px;font-size:14px;}
+    .fld .fld_c{height:32px}
+    .st{margin-bottom:10px;margin-top:80px}
+}
+
+@media screen and (display-mode: browser) and (max-width: 320px){
+    h3{font-size:16px;margin-bottom:10px;margin-top:80px}
+    .create-account .cont{max-width:260px;}
+}
+
+.description {
+    text-align: center;
+    font-size: 11px;
+    color: #fff;
+    line-height: 1.5;
+}
+
+.btnGroup {
+    display: flex;
+}
+
+.btnAccept {
+    background: #F44C57;
+}
+
+.btnDecline {
+    background: #4a5e85;
+}
+
+button {
+    color: #fff;
+    font-weight: bold;
+    font-size: medium;
+}
+
+.counter {
+    color: #fff;
+    text-align: end;
+}

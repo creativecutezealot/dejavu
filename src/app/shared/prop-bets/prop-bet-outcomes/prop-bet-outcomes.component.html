@@ -1,0 +1,66 @@
+<div class="cont animated fast prop-bets" [ngClass]="animateClass">
+  <div class="topbar prop-bets-topbar">
+    <a class="btnback-nav" (click)="onClose()"></a>
+    <img class="logo" src="../../../assets/images/inner-logo.png" />
+    <img class="dejavu" src="../../../assets/images/dejavu-logo.png" />
+  </div>
+  <div class="title-cont">
+    <img src="../../../assets/images/prop-bet-outcomes-title.svg" />
+  </div>
+
+  <div class="items" id="game_history_items">
+    <div class="items_c" id="game_history_items_c">
+      <div class="item animated fadeIn" *ngFor="let row of prop_bets">
+        <div class="date">
+
+        </div>
+        <div class="game-cont">
+          <div class="game-b">
+            <div class="teams">
+              <div class="team brt">
+                <span class="title">Date/Time</span>
+                <span class="name"></span>
+                <span class="score">{{row.ended_at | date:"mediumDate"}} {{row.ended_at | date:"shortTime"}}</span>
+              </div>
+              <!--end-->
+              <div class="team">
+                <span class="title"></span>
+                <span class="name"></span>
+                <span class="score"></span>
+              </div>
+            </div>
+            <div class="user-scores">
+              <div class="scores">
+                <div class="score">
+                  <span class="title">Diamonds</span>
+                  <span class="val">{{row.proposed_odds}}</span>
+                </div>
+                <div class="score">
+                  <span class="title">Total Bets</span>
+                  <span class="val"></span>
+                </div>
+              </div>
+              <div class="game-status">
+                <span *ngIf="row.user_id == user_auth_id && row.type == 0 && row.status == 4">The bet ended in a draw</span>
+                <span *ngIf="row.user_id != user_auth_id && row.type == 0 && row.status == 4">The bet ended in a draw</span>
+                <span *ngIf="row.user_id == user_auth_id && row.type == 1 && row.status == 4 && !row.is_freestyle">You added {{row.diamonds | number}}</span>
+                <span *ngIf="row.user_id == user_auth_id && row.type == 1 && row.status == 4 && row.is_freestyle">You added {{row.to_win | number}}</span>
+                <span *ngIf="row.user_id != user_auth_id && row.type == 1 && row.status == 4 && !row.is_freestyle">You lose {{row.diamonds | number}}</span>
+                <span *ngIf="row.user_id != user_auth_id && row.type == 1 && row.status == 4 && row.is_freestyle">You lose {{row.bet_amount | number}}</span>
+                <span *ngIf="row.user_id == user_auth_id && row.type == 2 && row.status == 4 && !row.is_freestyle">You lose {{row.diamonds | number}}</span>
+                <span *ngIf="row.user_id == user_auth_id && row.type == 2 && row.status == 4 && row.is_freestyle">You lose {{row.bet_amount | number}}</span>
+                <span *ngIf="row.user_id != user_auth_id && row.type == 2 && row.status == 4 && !row.is_freestyle">You lose {{row.diamonds | number}}</span>
+                <span *ngIf="row.user_id != user_auth_id && row.type == 2 && row.status == 4 && row.is_freestyle">You lose {{row.bet_amount | number}}</span>
+              </div>
+            </div>
+          </div>
+          <!---end of game -b-->
+        </div>
+        <!--end of gmae cont-->
+      </div>
+      <!--end of item-->
+    </div>
+  </div>
+  <!--end--->
+</div>
+<!--end-->

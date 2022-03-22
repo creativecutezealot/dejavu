@@ -1,0 +1,68 @@
+<div class="cont animated fast default-cont" [ngClass]="animateClass">
+  <div class="topbar default-topbar">
+    <a class="btnback-nav" (click)="onClose()"></a>
+    <img class="logo" src="../../../assets/images/inner-logo.png" />
+    <img class="dejavu" src="../../../assets/images/dejavu-logo.png" />
+  </div>
+  <div class="title-cont default-text-page-title">
+    <img height="24.58" [src]="_page_title" />
+  </div>
+
+  <h3 *ngIf="!isLoading && _user_groups.length == 0" class="friend-group-required-messsage">
+    You must add a group before creating a contest.
+  </h3>
+
+  <div *ngIf="!isLoading && _user_groups.length > 0" class="anim lists-container active">
+    <form [formGroup]="contestForm" (ngSumbit)="(onSubmitContest)">
+      <div class="list-contest-box anim active">
+        <input
+          type="text"
+          placeholder="Enter Contest Name"
+          formControlName="name"
+        />
+        <div class="fld">
+          <label>Select A Group</label>
+        </div>
+        <select
+          class="form-control"
+          formControlName="group_id"
+          placeholder="Select A Group"
+        >
+          <option disabled selected value>--Select A Group--</option>
+          <option *ngFor="let b of _user_groups" [value]="b.group_id">
+            {{ b.groups.name }}
+          </option>
+        </select>
+
+        <input
+          type="text"
+          placeholder="Start Date"
+          class="startDate"
+          formControlName="start_date"
+          #dp="bsDatepicker"
+          bsDatepicker
+          [bsConfig]="{
+            containerClass: 'theme-dark-blue',
+            dateInputFormat: 'MMMM D, YYYY',
+            showWeekNumbers: false
+          }"
+        />
+        <input
+          type="text"
+          placeholder="End Date"
+          class="endDate"
+          formControlName="end_date"
+          #dp="bsDatepicker"
+          bsDatepicker
+          [bsConfig]="{
+            containerClass: 'theme-dark-blue',
+            dateInputFormat: 'MMMM D, YYYY',
+            showWeekNumbers: false
+          }"
+        />
+      </div>
+    </form>
+    <a class="btndefault anim active" (click)="onSubmitContest()">Create</a>
+  </div>
+</div>
+<!--end-->

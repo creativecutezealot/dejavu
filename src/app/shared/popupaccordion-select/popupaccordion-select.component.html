@@ -1,0 +1,12 @@
+<div class="overlay anim" *ngIf="_status" [ngClass]="_class">
+    <div class="ic anim-fast" [ngClass]="_ic_class">
+        <h3>Choose Option</h3>
+        <a (click)="closePopup()" class="btnback-nav"></a>
+        <ul *ngIf="_data">
+            <li *ngFor="let l of _data;let x = index;" (click)="onSelect(x)"
+                [ngClass]="{'separator':_data[x].is_separator}">{{l.value}}</li>
+        </ul>
+    </div>
+    <!--end-->
+</div>
+<!--end-->

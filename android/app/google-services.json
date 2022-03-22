@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "952272229992",
+    "project_id": "baseball-craps",
+    "storage_bucket": "baseball-craps.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:952272229992:android:082a39edb638ed6d068ddd",
+        "android_client_info": {
+          "package_name": "com.dejavusports.baseballcraps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "952272229992-m68henvdgtnvi5js83bqh3qng11bb2pl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCX7rm6vgXdM2YgpPKRW8ppLt3H-eqeUlA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "952272229992-m68henvdgtnvi5js83bqh3qng11bb2pl.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "952272229992-bks5cuhjb9cbi67o541ac0a8ebc5fcks.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dejavusports.baseballcraps08"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

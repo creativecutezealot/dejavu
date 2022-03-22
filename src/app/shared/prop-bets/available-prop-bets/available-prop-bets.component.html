@@ -1,0 +1,44 @@
+<div class="cont animated fast prop-bets" [ngClass]="animateClass">
+
+    <div class="topbar prop-bets-topbar">
+        <a class="btnback-nav" (click)="onClose()"></a>
+        <img class="logo" src="../../../assets/images/inner-logo.png" />
+        <img class="dejavu" src="../../../assets/images/dejavu-logo.png" />
+    </div>
+    <div class="title-cont">
+        <img src="../../../assets/images/available-prop-bets-title.svg" />
+    </div>
+
+    <div class="props-form">
+        <div class="sub-title">JUST FOR ME</div>
+        <div class="anim lists-container">
+            <ul>
+                <li *ngFor="let row of myBets">
+                    <span *ngIf="!row.is_freestyle">{{row.sender[0].first_name}} {{row.sender[0].last_name}} thinks
+                        {{row.player_team_options.value}}
+                        {{row.will_result_in}}
+                        ({{row.with_timeframe}})</span>
+                    <span *ngIf="row.is_freestyle">{{row.sender[0].first_name}} {{row.sender[0].last_name}} thinks {{row.event}}</span>
+                    <span><a (click)="onDetails('just_for_me', row)">Details</a></span><br />
+                </li>
+            </ul>
+        </div>
+        <div class="sub-title">GENERAL PROP BETS</div>
+        <div class="anim lists-container">
+            <ul>
+                <li *ngFor="let row of generalBets">
+                    <span *ngIf="!row.is_freestyle">{{row.sender[0].first_name}} {{row.sender[0].last_name}} thinks
+                        {{row.player_team_options.value}}
+                        {{row.will_result_in}}
+                        ({{row.with_timeframe}})</span>
+                    <span *ngIf="row.is_freestyle">{{row.sender[0].first_name}} {{row.sender[0].last_name}} thinks {{row.event}}</span>
+                    <span><a (click)="onDetails('general_prop_bets', row)">Details</a></span><br />
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--end--->
+
+
+</div>
+<!--end-->

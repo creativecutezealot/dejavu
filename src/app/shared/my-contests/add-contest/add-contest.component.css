@@ -1,0 +1,22 @@
+.cont{color: #fff; background-color:#00263c;position: absolute;top:0px;left:0px;z-index:9999;width:100%;height:calc(100% - 143px);padding-top:143px;}
+.topbar{
+  width: 100%;
+  height: 63px;
+  background-color: #000f1d;
+  position: fixed;
+  top:0px;
+  left:0px;
+  z-index:99;
+}
+.title-cont{top:63px;width:100%;text-align: center;height:80px;position: fixed;left:0px;z-index: 99;background-color:#00263c}
+.title-cont img{position: absolute;top:50%;left:50%;transform:translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);}
+.friend-group-required-messsage { text-align: center; padding: 26px;}
+
+/* Lifted from edit-profile.component.css */
+.fld{margin:0 7px 7px}
+.fld label{color:#fff;font-style:italic;font-size:14px;margin: 0 0 10px 5px;display:block}
+
+
+@media screen and (display-mode: browser) and (max-width: 375px){
+.fld input[type="text"]{height:32px;font-size:14px;}
+}

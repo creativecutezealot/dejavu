@@ -1,0 +1,659 @@
+<div *ngIf="showLoading" class="loading-text">
+	<span><em>Fetching data...</em></span>
+</div>
+
+<div class="mc anim" [ngClass]="mcClass ? mcClass : ''" (touchend)="onSetTimeout()">
+	<div class="mhdr">
+		<a class="menu" [ngClass]="mcClass ? mcClass : 'close'" (click)="onShowMenu()">
+			<span></span>
+		</a>
+		<!--emd-->
+		<img class="logo" src="../../assets/images/inner-logo.png" />
+		<img class="dejavu" src="../../assets/images/dejavu-logo.png" />
+	</div>
+	console.log(resp)
+	<div class="game_status animated delay-600ms bounceInDown">
+		<div class="box1">
+			<div class="teams" *ngIf="selectedGame">
+				<div class="team">
+					<span class="name">{{ selectedGame.AwayTeam }}</span>
+					<span class="run">{{ AwayTeamRuns }}</span>
+				</div>
+				<div class="team">
+					<span class="name">{{ selectedGame.HomeTeam }}</span>
+					<span class="run">{{ HomeTeamRuns }}</span>
+				</div>
+			</div>
+			<a class="btnpropbets" (click)="onAddPropBet()">Prop Bets</a>
+			<a
+				class="btnpropbets"
+				*ngIf="selectedGame && selectedGame.BettingLine && selectedGame.BettingLine != 0"
+				(click)="bettingLineInfo()"
+				>Line: {{ selectedGame.BettingLine }}</a
+			>
+			<!--end-->
+		</div>
+		<div class="inning">
+			<span class="arr up" *ngIf="selectedGame" [ngClass]="{ active: selectedGame.InningHalf == 'T' }"></span>
+			<span class="val" *ngIf="selectedGame">{{ selectedGame.Inning }}</span>
+			<span class="arr bottom" *ngIf="selectedGame" [ngClass]="{ active: selectedGame.InningHalf == 'B' }"></span>
+		</div>
+		<!--end-->
+		<div class="play_status">
+			<div class="runners" *ngIf="selectedGame">
+				<span class="b b1" [ngClass]="selectedGame.RunnerOnFirst ? 'active' : ''"></span>
+				<span class="b b2" [ngClass]="selectedGame.RunnerOnSecond ? 'active' : ''"></span>
+				<span class="b b3" [ngClass]="selectedGame.RunnerOnThird ? 'active' : ''"></span>
+			</div>
+			<!--end-->
+			<div class="outs" *ngIf="selectedGame">
+				<span class="o o1" [ngClass]="selectedGame.Outs == 2 || selectedGame.Outs == 1 ? 'active' : ''"></span>
+				<span class="o o2" [ngClass]="selectedGame.Outs == 2 ? 'active' : ''"></span>
+				<span class="o o3" [ngClass]="selectedGame.Outs >= 3 ? '' : ''"></span>
+			</div>
+			<!--end-->
+		</div>
+		<!--end-->
+		<div class="player_status">
+			<span class="lb-s">BALL - STRIKE</span>
+			<span class="b-s"
+				>{{ currentBalls ? (currentBalls != null ? currentBalls : 0) : 0 }}
+				-
+				{{ currentStrikes ? (currentStrikes != null ? currentStrikes : 0) : 0 }}</span
+			>
+		</div>
+		<div class="button_status">
+			<div class="button_post">
+				<span class="lbl">Button Pos</span>
+				<span class="val">{{ button_on == 0 ? "OFF" : button_pos }}</span>
+			</div>
+		</div>
+		<!--end-->
+		<div class="play_result">
+			<div class="it">
+				<span class="lbl">Batter:</span>
+				<span class="val"
+					><span>{{ lastPlays ? selectedGame.CurrentHitter : "" }}</span></span
+				>
+			</div>
+			<div class="it">
+				<span class="lbl">Last Play:</span>
+				<div class="mdropdown" (click)="onLastPlayList($event)">
+					<span class="val lp"
+						><span *ngIf="selectedGame">{{
+							selectedGame.LastPlay == null ? "" : selectedGame.LastPlay
+						}}</span></span
+					>
+					<div class="last-play-items" [ngClass]="showLastPlayList ? 'active' : ''">
+						<ul>
+							<li *ngFor="let l of listLastPlays">
+								{{ l ? l : "NULL" }}
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- <app-ads class="ads" position="inline"></app-ads> -->
+	<div class="stadium" #stadium>
+		<img class="animated bounceInDown" src="../../../assets/images/stadium_new.png" />
+		<a
+			class=""
+			[ngClass]="chip_active && button_on == 1 && betOpenAlert ? 'bet_area come-left active' : ''"
+			(click)="onAddBet($event, 'come')"
+			#come_left
+		></a>
+		<a
+			class="bet_area"
+			[ngClass]="[
+				chip_active && button_on != 1 && betOpenAlert ? ' passline-left active' : '',
+				chip_active && button_on == 1 && this.total_bets_chip['total_passline_bet'] > 0 && betOpenAlert
+					? ' odds passline-left active'
+					: ''
+			]"
+			(click)="onAddBet($event, 'passline')"
+			#passline_left
+		></a>
+		<a
+			class=""
+			[ngClass]="
+				chip_active && total_bets_chip['total_bb_bet'] > 0 && betOpenAlert ? 'bet_area odds bb active' : ''
+			"
+			(click)="onAddBet($event, 'bb')"
+			#bb
+		></a>
+		<a
+			class=""
+			[ngClass]="
+				chip_active && total_bets_chip['total_infield_fly_bet'] > 0 && betOpenAlert
+					? 'bet_area odds infield_fly active'
+					: ''
+			"
+			(click)="onAddBet($event, 'infield_fly')"
+			#infield_fly
+		></a>
+		<a
+			class=""
+			[ngClass]="
+				chip_active && total_bets_chip['total_ground_out_bet'] > 0 && betOpenAlert
+					? 'bet_area odds ground_out active'
+					: ''
+			"
+			(click)="onAddBet($event, 'ground_out')"
+			#ground_out
+		></a>
+		<a
+			class=""
+			[ngClass]="
+				chip_active && total_bets_chip['total_strikeout_bet'] > 0 && betOpenAlert
+					? 'bet_area odds k active'
+					: ''
+			"
+			(click)="onAddBet($event, 'k')"
+			#kk
+		></a>
+		<a
+			class=""
+			[ngClass]="
+				chip_active && total_bets_chip['total_fly_out_bet'] > 0 && betOpenAlert
+					? 'bet_area odds fly_out active'
+					: ''
+			"
+			(click)="onAddBet($event, 'fly_out')"
+			#fly_out
+		></a>
+		<a
+			class=""
+			[ngClass]="
+				chip_active && total_bets_chip['total_hit_bet'] > 0 && betOpenAlert ? 'bet_area odds hit active' : ''
+			"
+			(click)="onAddBet($event, 'hit')"
+			#hit
+		></a>
+
+		<a
+			class=""
+			[ngClass]="chip_active && openFirstToHome && betOpenAlert ? 'bet_area first_to_home active' : ''"
+			(click)="onAddBet($event, 'first_to_home')"
+			#first_to_home
+		></a>
+
+		<a
+			class=""
+			[ngClass]="chip_active && is8ways && betOpenAlert ? 'bet_area place_8_ways active' : ''"
+			(click)="onAddBet($event, 'place_8_ways')"
+			#place_8_ways
+		></a>
+		<!--chip_active && (currentBalls >=1 && currentBalls<=2) -->
+		<span
+			class="button_pos animated bounceInDown anim"
+			[ngClass]="[this.button_on == 1 ? 'on' : '', button_pos_class ? button_pos_class : '']"
+		></span>
+
+		<div class="passline-left-placebet placebet animated delay-1s fadeIn" *ngIf="bets">
+			<span
+				class="amt_val pos_passline"
+				[ngClass]="bets_result_class['passline_result_amt'] ? bets_result_class['passline_result_amt'] : ''"
+				>{{ bets_result_class["passline_result_amt_val"] }}</span
+			>
+			<span
+				class="amt_val pos_passline_odd"
+				[ngClass]="
+					bets_result_class['passline_result_amt'] && bets_result_class['passline_result_odd']
+						? bets_result_class['passline_result_amt']
+						: ''
+				"
+				>{{ bets_result_class["passline_result_amt_val_odd"] }}</span
+			>
+			<a
+				class="chp{{ b.last_selected_chip }}"
+				[ngClass]="bets_result_class['passline_result_class'] ? bets_result_class['passline_result_class'] : ''"
+				(click)="onAddBet($event, 'passline')"
+				*ngFor="let b of bets | betsfilter: 'passline'"
+			>
+				<span>{{ b.amount }}</span>
+			</a>
+		</div>
+		<div class="come-left-placebet placebet animated delay-1s fadeIn" *ngIf="bets">
+			<span
+				class="amt_val pos_come"
+				[ngClass]="bets_result_class['come_result_amt'] ? bets_result_class['come_result_amt'] : ''"
+				>{{ bets_result_class["come_result_amt_val"] }}</span
+			>
+			<a
+				(click)="onAddBet($event, 'come')"
+				class="chp{{ b.last_selected_chip }}"
+				[ngClass]="bets_result_class['come_result_class'] ? bets_result_class['come_result_class'] : ''"
+				*ngFor="let b of bets | betsfilter: 'come'"
+			>
+				<span>{{ b.amount }}</span>
+			</a>
+		</div>
+		<div class="bb-placebet placebet animated delay-1s fadeIn" *ngIf="bets">
+			<span
+				class="amt_val pos_bb"
+				[ngClass]="bets_result_class['bb_result_amt'] ? bets_result_class['bb_result_amt'] : ''"
+				>{{ bets_result_class["bb_result_amt_val"] }}</span
+			>
+
+			<span
+				class="amt_val pos_bb_odd"
+				[ngClass]="
+					bets_result_class['bb_result_amt'] && bets_result_class['bb_result_odd']
+						? bets_result_class['bb_result_amt']
+						: ''
+				"
+				>{{ bets_result_class["bb_result_amt_val_odd"] }}</span
+			>
+			<a
+				(click)="onAddBet($event, 'bb')"
+				class="chp{{ b.last_selected_chip }}"
+				[ngClass]="bets_result_class['bb_result_class'] ? bets_result_class['bb_result_class'] : ''"
+				*ngFor="let b of bets | betsfilter: 'bb'"
+			>
+				<span>{{ b.amount }}</span>
+			</a>
+		</div>
+		<div class="infield_fly-placebet placebet animated delay-1s fadeIn" *ngIf="bets">
+			<span
+				class="amt_val pos_infield_fly"
+				[ngClass]="
+					bets_result_class['infield_fly_result_amt'] ? bets_result_class['infield_fly_result_amt'] : ''
+				"
+				>{{ bets_result_class["infield_fly_result_amt_val"] }}</span
+			>
+
+			<span
+				class="amt_val pos_infield_fly_odd"
+				[ngClass]="
+					bets_result_class['infield_fly_result_amt'] && bets_result_class['infield_fly_result_odd']
+						? bets_result_class['infield_fly_result_amt']
+						: ''
+				"
+				>{{ bets_result_class["infield_fly_result_amt_val_odd"] }}</span
+			>
+
+			<a
+				(click)="onAddBet($event, 'infield_fly')"
+				class="chp{{ b.last_selected_chip }}"
+				[ngClass]="
+					bets_result_class['infield_fly_result_class'] ? bets_result_class['infield_fly_result_class'] : ''
+				"
+				*ngFor="let b of bets | betsfilter: 'infield_fly'"
+			>
+				<span>{{ b.amount }}</span>
+			</a>
+		</div>
+		<div class="ground_out-placebet placebet animated delay-1s fadeIn" *ngIf="bets">
+			<span
+				class="amt_val pos_ground_out"
+				[ngClass]="bets_result_class['ground_out_result_amt'] ? bets_result_class['ground_out_result_amt'] : ''"
+				>{{ bets_result_class["ground_out_result_amt_val"] }}</span
+			>
+
+			<span
+				class="amt_val pos_ground_out_odd"
+				[ngClass]="
+					bets_result_class['ground_out_result_amt'] && bets_result_class['ground_out_result_odd']
+						? bets_result_class['ground_out_result_amt']
+						: ''
+				"
+				>{{ bets_result_class["ground_out_result_amt_val_odd"] }}</span
+			>
+
+			<a
+				(click)="onAddBet($event, 'ground_out')"
+				class="chp{{ b.last_selected_chip }}"
+				[ngClass]="
+					bets_result_class['ground_out_result_class'] ? bets_result_class['ground_out_result_class'] : ''
+				"
+				*ngFor="let b of bets | betsfilter: 'ground_out'"
+			>
+				<span>{{ b.amount }}</span>
+			</a>
+		</div>
+
+		<div class="k-placebet placebet animated delay-1s fadeIn" *ngIf="bets">
+			<span
+				class="amt_val pos_k"
+				[ngClass]="bets_result_class['strikeout_result_amt'] ? bets_result_class['strikeout_result_amt'] : ''"
+				>{{ bets_result_class["strikeout_result_amt_val"] }}</span
+			>
+
+			<span
+				class="amt_val pos_k_odd"
+				[ngClass]="
+					bets_result_class['strikeout_result_amt'] && bets_result_class['strikeout_result_odd']
+						? bets_result_class['strikeout_result_amt']
+						: ''
+				"
+				>{{ bets_result_class["strikeout_result_amt_val_odd"] }}</span
+			>
+
+			<a
+				(click)="onAddBet($event, 'k')"
+				class="chp{{ b.last_selected_chip }}"
+				[ngClass]="
+					bets_result_class['strikeout_result_class'] ? bets_result_class['strikeout_result_class'] : ''
+				"
+				*ngFor="let b of bets | betsfilter: 'k'"
+			>
+				<span>{{ b.amount }}</span>
+			</a>
+		</div>
+		<div class="fly_out-placebet placebet animated delay-1s fadeIn" *ngIf="bets">
+			<span
+				class="amt_val pos_flyout"
+				[ngClass]="bets_result_class['fly_out_result_amt'] ? bets_result_class['fly_out_result_amt'] : ''"
+				>{{ bets_result_class["fly_out_result_amt_val"] }}</span
+			>
+
+			<span
+				class="amt_val pos_flyout_odd"
+				[ngClass]="
+					bets_result_class['fly_out_result_amt'] && bets_result_class['fly_out_result_odd']
+						? bets_result_class['fly_out_result_amt']
+						: ''
+				"
+				>{{ bets_result_class["fly_out_result_amt_val_odd"] }}</span
+			>
+
+			<a
+				(click)="onAddBet($event, 'fly_out')"
+				class="chp{{ b.last_selected_chip }}"
+				[ngClass]="bets_result_class['fly_out_result_class'] ? bets_result_class['fly_out_result_class'] : ''"
+				*ngFor="let b of bets | betsfilter: 'fly_out'"
+			>
+				<span>{{ b.amount }}</span>
+			</a>
+		</div>
+		<div class="hit-placebet placebet animated delay-1s fadeIn" *ngIf="bets">
+			<span
+				class="amt_val pos_hit"
+				[ngClass]="bets_result_class['hit_result_amt'] ? bets_result_class['hit_result_amt'] : ''"
+				>{{ bets_result_class["hit_result_amt_val"] }}</span
+			>
+
+			<span
+				class="amt_val pos_hit_odd"
+				[ngClass]="
+					bets_result_class['hit_result_amt'] && bets_result_class['hit_result_odd']
+						? bets_result_class['hit_result_amt']
+						: ''
+				"
+				>{{ bets_result_class["hit_result_amt_val_odd"] }}</span
+			>
+
+			<a
+				(click)="onAddBet($event, 'hit')"
+				class="chp{{ b.last_selected_chip }}"
+				[ngClass]="bets_result_class['hit_result_class'] ? bets_result_class['hit_result_class'] : ''"
+				*ngFor="let b of bets | betsfilter: 'hit'"
+			>
+				<span>{{ b.amount }}</span>
+			</a>
+		</div>
+		<div class="first_to_home-placebet placebet animated delay-1s fadeIn" *ngIf="bets">
+			<span
+				class="amt_val pos_8ways"
+				[ngClass]="
+					bets_result_class['first_to_home_result_amt'] ? bets_result_class['first_to_home_result_amt'] : ''
+				"
+				>{{ bets_result_class["first_to_home_result_amt_val"] }}</span
+			>
+			<a
+				(click)="showPlayer(i)"
+				class="block"
+				class="chp{{ b.last_selected_chip }}"
+				[ngClass]="
+					bets_result_class['first_to_home_result_class']
+						? bets_result_class['first_to_home_result_class']
+						: ''
+				"
+				*ngFor="let b of bets | betsfilter: 'first_to_home'; index as i"
+			>
+				<!-- *ngFor="let b of bets | betsfilter: 'first_to_home'; index as i" -->
+				<span>{{ b.amount }}</span>
+				<!-- <span>100</span> -->
+				<div class="first_base_list" [ngClass]="{ active: isActive(i) }">
+					<div class="text">
+						<p>
+							{{ b.first_to_home_player }}
+							<!-- John Smith Doe -->
+						</p>
+					</div>
+				</div>
+			</a>
+		</div>
+
+		<div class="place_8_ways-placebet placebet animated delay-1s fadeIn" *ngIf="bets">
+			<span
+				class="amt_val pos_8ways"
+				[ngClass]="
+					bets_result_class['place_8_ways_result_amt'] ? bets_result_class['place_8_ways_result_amt'] : ''
+				"
+				>{{ bets_result_class["place_8_ways_result_amt_val"] }}</span
+			>
+			<a
+				(click)="onAddBet($event, 'place_8_ways')"
+				class="chp{{ b.last_selected_chip }}"
+				[ngClass]="
+					bets_result_class['place_8_ways_result_class'] ? bets_result_class['place_8_ways_result_class'] : ''
+				"
+				*ngFor="let b of bets | betsfilter: 'place_8_ways'"
+			>
+				<span>{{ b.amount }}</span>
+			</a>
+		</div>
+	</div>
+	<a
+		[ngStyle]="{
+			'top.px': chip_temp_pos.top,
+			'left.px': chip_temp_pos.left
+		}"
+		class="chpt ch{{ gameboard.chip_selected }}d"
+		*ngIf="chip_active"
+	></a>
+
+	<!--
+<div class="win_chip" *ngIf="animateChipWin.length>0">
+  <span *ngFor="let anim of animateChipWin" class="chp fadeOutDownBig" [ngClass]="['animated',anim.class]"></span>
+</div>
+-->
+	<!-- *ngFor="let b of bets | betsfilter: 'first_to_home'" -->
+	<!-- <div class="first_base_list" [ngClass]="_first_base_class">
+    <div class="text">
+      <p>{{ b.amount | gameCurrencyFormat }} {{ b.first_to_home_player }}</p>
+      <a (click)="onAddBet($event, 'first_to_home')" class="block" class="">
+        <span>10</span>
+      </a>
+      <p>John Smith Doe</p>
+      <p>{{ b.first_to_home_player }}</p>
+    </div>
+  </div> -->
+
+	<!-- <div
+    class="first_base"
+    [ngClass]="_first_base_class"
+    *ngFor="let r of game_table_plays.runner"
+  >
+    <img [src]="r.photoUrl" />
+    <div class="text">
+      <p>
+        {{ r.player_first_name }} {{ r.player_last_name }} reached the first
+        base. First to Home is now open for taking a bet.
+      </p>
+    </div>
+  </div> -->
+
+	<!-- <div class="first_base" [ngClass]="_first_base_class" *ngIf="firstBasePlayer">
+    <img [src]="firstBasePlayer.photoUrl" />
+    <div class="text">
+      <p>
+        {{ firstBasePlayer.player_first_name }}
+        {{ firstBasePlayer.player_last_name }} reached the first base. First to
+        Home is now open for taking a bet.
+      </p>
+    </div>
+  </div> -->
+
+	<!-- <div class="sponsor-logos">
+    <img
+      class="fantasy-logo"
+      src="../../../assets/images/fantasy-logo.png"
+      srcset="
+        ../../../assets/images/fantasy-logo@2x.png 2x,
+        ../../../assets/images/fantasy-logo@3x.png 3x
+      "
+    />
+
+    <img
+      class="sports-logo"
+      src="../../../assets/images/sport-data-io.png"
+      srcset="
+        ../../../assets/images/sport-data-io@2x.png 2x,
+        ../../../assets/images/sport-data-io@3x.png 3x
+      "
+    />
+  </div> -->
+	<div class="profiletab animated fadeIn">
+		<div class="profile-cont">
+			<div class="profile-img-cont">
+				<div class="profile-img">
+					<img
+						src="../../../assets/images/mask-group-1.png"
+						srcset="
+							../../../assets/images/mask-group-1@2x.png 2x,
+							../../../assets/images/mask-group-1@3x.png 3x
+						"
+					/>
+				</div>
+				<!--end-->
+			</div>
+			<!--end-->
+			<div class="profile-right">
+				<div class="profile-top">
+					<div class="clear-button-cont">
+						<a [ngClass]="gameboard.chip_selected == 0 ? 'active' : ''" (click)="onSelectChip('0')">
+							<span class="t">
+								<span>Clear</span>
+							</span>
+						</a>
+					</div>
+					<div class="chipbuttons">
+						<ul>
+							<li
+								[ngClass]="{
+									disablechip: user_remaining_balance < 1
+								}"
+							>
+								<a
+									(touchend)="onChipDrop($event)"
+									(touchstart)="onChipDrag($event, '1')"
+									(touchmove)="onChipMove($event)"
+									class="ch1d"
+									[ngClass]="{
+										active: gameboard.chip_selected == 1
+									}"
+								></a>
+							</li>
+							<li
+								[ngClass]="{
+									disablechip: user_remaining_balance < 5
+								}"
+							>
+								<a
+									(touchend)="onChipDrop($event)"
+									(touchstart)="onChipDrag($event, '5')"
+									(touchmove)="onChipMove($event)"
+									class="ch5d"
+									[ngClass]="{
+										active: gameboard.chip_selected == 5
+									}"
+								></a>
+							</li>
+							<li
+								[ngClass]="{
+									disablechip: user_remaining_balance < 10
+								}"
+							>
+								<a
+									(touchend)="onChipDrop($event)"
+									(touchstart)="onChipDrag($event, '10')"
+									(touchmove)="onChipMove($event)"
+									class="ch10d"
+									[ngClass]="{
+										active: gameboard.chip_selected == 10
+									}"
+								></a>
+							</li>
+							<li
+								[ngClass]="{
+									disablechip: user_remaining_balance < 25
+								}"
+							>
+								<a
+									(touchend)="onChipDrop($event)"
+									(touchstart)="onChipDrag($event, '25')"
+									(touchmove)="onChipMove($event)"
+									class="ch25d"
+									[ngClass]="{
+										active: gameboard.chip_selected == 25
+									}"
+								></a>
+							</li>
+							<li
+								[ngClass]="{
+									disablechip: user_remaining_balance < 100
+								}"
+							>
+								<a
+									(touchend)="onChipDrop($event)"
+									(touchstart)="onChipDrag($event, '100')"
+									(touchmove)="onChipMove($event)"
+									class="ch100d"
+									[ngClass]="{
+										active: gameboard.chip_selected == 100
+									}"
+								></a>
+							</li>
+						</ul>
+					</div>
+					<!--end of chipbutton-->
+				</div>
+				<!--end of profile-top-->
+				<div class="profile-bottom">
+					<div class="chip-value-cont">
+						<div class="lbl">CHIP VALUE:</div>
+						<div class="val">
+							<span>{{ user_remaining_balance | gameCurrencyFormat }}</span>
+						</div>
+					</div>
+					<!--emd-->
+					<div class="ranks">
+						<div class="lbl">RANK:</div>
+						<div class="val">
+							<app-user-rank></app-user-rank>
+						</div>
+					</div>
+				</div>
+				<div class="profile-bottom">
+					<div class="chip-value-cont">
+						<div class="lbl">DIAMONDS:</div>
+						<div class="val">
+							<span>{{ user_remaining_diamonds | gameCurrencyFormat }}</span>
+						</div>
+					</div>
+					<!--emd-->
+					<!-- <div class="ranks">
+						<div class="val">
+							<a (click)="onJudgeBet()">JUDGE</a>
+						</div>
+					</div> -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

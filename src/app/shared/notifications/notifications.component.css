@@ -1,0 +1,25 @@
+.notification {
+  width: 90%;
+  background-color: #ffff;
+  padding: 10px;
+  position: fixed;
+  z-index: 999;
+  border-radius: 5px;
+  top: 20px;
+  -webkit-transform: translate(-50%, -120%);
+  transform: translate(-50%, -120%);
+  left: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.notification.active {
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+
+}
+
+.notification p {
+  text-align: center;
+  margin: 0px;
+  font-size: 14px;
+}

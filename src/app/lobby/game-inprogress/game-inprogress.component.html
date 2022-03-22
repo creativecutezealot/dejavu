@@ -1,0 +1,44 @@
+<div class="boxtable animated gamelobby-box" [ngClass]="[boxClass,(blurClass?blurClass:'')]">
+  <div class="ic">
+      <span class="title">Game Lobby</span>
+      <div class="items" id="scrollview">
+        <div class="scrollcontainer" id="scrollcontainer">
+          <ng-template [ngIf]="games?.length > 0" [ngIfElse]="loading">
+            <div class="item" [class.active]="isItemSelected[i]" (click)="onChooseGame(i,g._id,g.GameID,g.Status)" *ngFor="let g of games;let i = index">
+              <div class="teams" [ngClass]="{'scheduled':g.Status=='Scheduled'}">
+                  <div class="team hd">
+                      <span class="lbl"></span>
+                      <span class="score" *ngIf="g.Status=='InProgress'">Scores</span>
+                    </div>
+                    <div class="team">
+                      <span class="lbl">{{g.AwayTeam[0].Name}}</span>
+                      <span class="score" *ngIf="g.Status=='InProgress'">{{g.AwayTeamRuns}}</span>
+                    </div>
+                  <div class="team">
+                      <span class="lbl">{{g.HomeTeam[0].Name}}</span>
+                      <span class="score" *ngIf="g.Status=='InProgress'">{{g.HomeTeamRuns}}</span>
+                    </div>
+                <!-- <div class="team">
+                  <span class="lbl">LINE: {{g.BettingLine}}</span>
+                </div> -->
+              </div><!--end-->
+              <div class="inning" style="margin-top: 5px;">
+                  <span class="n">{{g.Status=="InProgress"?"Inning":"Scheduled"}}</span>
+                  <span class="lbl" *ngIf="g.Status=='InProgress'">{{g.Inning}}</span>
+                  <span class="lbl date" *ngIf="g.Status=='Scheduled'">{{g.DateTime | date:'short'}}</span>
+              </div><!--end-->
+            </div><!--end-->
+          </ng-template>
+          <ng-template #loading>
+            <div style="float:left;width:180px;color:#fff;text-align:center;margin:10px 0 0 20px;font-size:14px"><small>Stay Tuned! Baseball Craps will be back for the 2022 Season!</small></div>
+          </ng-template>
+      </div><!--scrollcontainrer-->
+      </div><!--end-->
+      <app-scrollbar *ngIf="loaded" [height]="270" scrollview="scrollview" scrollcontainer="scrollcontainer"></app-scrollbar>
+
+      <a (click)="onReload($event)" class="btnreload">Reload</a>
+     
+      <a class="btnplay" [class.active]="(selectedID!='')" (click)="onSelectGame()"></a>
+  </div><!--end ic-->
+
+</div><!--end-->

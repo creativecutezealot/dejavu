@@ -1,0 +1,18 @@
+<div class="overlay anim" *ngIf="_status" [ngClass]="_class">
+    <div class="ic anim-fast" [ngClass]="_ic_class">
+        <h3>{{_title}}</h3>
+        <a (click)="closePopup()" class="btnback-nav"></a>
+        <div class="inner">
+            <p>{{_message}}</p>
+
+            <div class="options">
+                <a (click)="onResponse()" *ngIf="_title === 'Judge'">Draw</a>
+                <a (click)="onResponse(false)">{{_cancel}}</a>
+                <a (click)="onResponse(true)" class="btnyes">{{_ok}}</a>
+            </div>
+
+        </div>
+    </div>
+    <!--end-->
+</div>
+<!--end-->

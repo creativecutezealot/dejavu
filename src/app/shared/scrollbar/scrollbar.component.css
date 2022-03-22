@@ -1,0 +1,18 @@
+.scrollbar{
+    width:22px;height:392px;
+    position: absolute;
+    top:42px;
+    right:28px;
+}
+.scrollbar a{margin:0px}
+.scrollbar .up_arrow{width:22px;height:23px;background: url("../../../assets/images/arrow_up.png") 0 0 no-repeat;background-size:100%;position: absolute;}
+.scrollbar .scroller{z-index:9;width:22px;height:23px;background: url("../../../assets/images/scroller.png") 0 0 no-repeat;background-size:100%;position: absolute;left:-5px}
+.scrollbar .track{width:12px;height:calc(100% - 50px);background:#fff;border-radius:7px;top:25px;position: absolute;left:50%;transform: translate(-50%,0);-webkit-transform: translate(-50%,0)}
+.scrollbar .track:after{z-index:1;position: absolute;top:2px;left:2px;width:8px;border-radius:4px;height:calc(100% - 4px);content:" ";
+    background: rgb(22,80,152);
+    background: -moz-linear-gradient(top,  rgb(22,80,152) 0%, rgb(69,138,200) 50%, rgb(22,80,152) 100%);
+    background: -webkit-linear-gradient(top,  rgb(22,80,152) 0%,rgb(69,138,200) 50%,rgb(22,80,152) 100%);
+    background: linear-gradient(to bottom,  rgb(22,80,152) 0%,rgb(69,138,200) 50%,rgb(22,80,152) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#165098', endColorstr='#165098',GradientType=0 );
+    }
+.scrollbar .down_arrow{width:22px;height:22px;background: url("../../../assets/images/arrow_down.png") 0 0 no-repeat;background-size:100%;position: absolute;bottom:0px}

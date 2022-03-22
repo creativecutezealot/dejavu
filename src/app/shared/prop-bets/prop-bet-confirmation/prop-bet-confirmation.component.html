@@ -1,0 +1,31 @@
+<div class="create-account">
+    <div class="row cont animated" [ngClass]="boxClass">
+        <div class="ic animated delay-1s">
+            <form [formGroup]="dataForm" (ngSubmit)="onSubmit()">
+                <a class="close" (click)="onExpire()"></a>
+                <h3></h3>
+                <div class="fld counter">
+                    <p>{{ minutes }}:{{ seconds }}</p>
+                </div>
+                <div class="fld description">
+                    <p>{{ proposer }} has sent you the following offer:</p>
+                    <p *ngIf="!propBetData.is_freestyle">I bet my {{propBetData.bet_amount}} diamonds vs your
+                        {{your_points}} diamonds that {{propBetData.player_team_options.value}} will
+                        {{propBetData.will_result_in}} in {{propBetData.with_timeframe}}. The
+                        first {{propBetData.max_takers}} takers will be accepted.</p>
+                    <p *ngIf="propBetData.is_freestyle">I bet my {{propBetData.bet_amount}} diamonds vs your
+                        {{your_points}} diamonds that {{propBetData.event}}. The
+                        first {{propBetData.max_takers}} takers will be accepted.</p>
+                </div>
+                <div class="fld btnGroup">
+                    <button class="btnAccept" (click)="onAccept()">Accept</button>
+                    <button class="btnDecline" (click)="onDecline()">Decline</button>
+                </div>
+                <div class="fld">
+                    <input id="comment" formControlName="comment" [(ngModel)]="comment" placeholder="Add Comment:"
+                        type="text" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

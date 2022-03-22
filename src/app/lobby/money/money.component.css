@@ -1,0 +1,11 @@
+.cont{position:absolute;top:100px;left:50%;transform:translate(-50%,0);-webkit-transform:translate(-50%,0);width:135.8px;height:45.85px;background:url("../../../assets/images/moneybg.png") 0 0 no-repeat;background-size: 100%;}
+.cont span{color:#fff;font-weight:700;font-size:14px;margin:15px 0 0 48px;float:left;}
+
+
+
+
+@media screen and (display-mode: browser) and (max-width: 320px){
+    .cont{max-width:80px;}
+    .cont{top:70px}
+    .cont span{font-size:10px;margin:8px 0 0 30px}
+}

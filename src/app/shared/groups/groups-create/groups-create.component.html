@@ -1,0 +1,6 @@
+<div class="anim default-form-container" [ngClass]="{'active':_status}">
+    <div class="fld">
+        <input type="text" placeholder="Enter Group Name" [(ngModel)]="_txtname" />
+    </div>
+    <a class="btndefault anim" [ngClass]="{'active':_status}"  (click)="onSave()">Create</a>
+</div> 

@@ -1,0 +1,22 @@
+<div class="cont animated fast default-cont" [ngClass]="animateClass">
+
+    <div class="topbar default-topbar">
+      <a class="btnback-nav" (click)="onClose()"></a>
+      <img class="logo" src="../../../assets/images/inner-logo.png" />
+      <img class="dejavu" src="../../../assets/images/dejavu-logo.png" />
+    </div>
+    <div class="title-cont default-text-page-title">
+      <img height="24.58" src="../../../assets/images/txt-friends.svg"/>
+    </div>
+
+    <ul class="popup-nav">
+      <li><a (click)="onMenuClick('friends')">My Friends</a></li>
+      <li [ngClass]="{'hasUnread':hasUnread}"><a (click)="onMenuClick('friends-request')">Friend Request</a></li>
+  </ul>
+  
+    
+  
+  
+</div>
+<!--end-->
+  

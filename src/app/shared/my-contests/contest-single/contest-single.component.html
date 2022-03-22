@@ -1,0 +1,52 @@
+<div class="cont animated fast default-cont" [ngClass]="animateClass">
+	<div class="topbar default-topbar">
+		<a class="btnback-nav" (click)="onClose()"></a>
+		<img class="logo" src="../../../assets/images/inner-logo.png" />
+		<img class="dejavu" src="../../../assets/images/dejavu-logo.png" />
+	</div>
+	<div class="title-cont default-text-page-title">
+		<span>{{ this.name }}</span>
+	</div>
+
+	<p class="endDate">Contest Starts {{ this.startDate == '' ? '' : 'On ' + this.startDate }} {{ this.startTime == '' ? '' : 'At ' + this.startTime }} And Ends After the Last Game on {{ this.endDate }}</p>
+
+	<div class="anim lists-container active" *ngIf="players">
+		<!-- <ul *ngIf="contestInvites">
+          <li *ngFor="let row of contestInvites"><span>{{row.contests[0].name}}</span> <a class="btnunfriend" (click)="onAccept(row._id)">Accept</a></li>
+        </ul> -->
+
+		<div class="profile">
+			<div class="scores">
+				<span class="chips">Chip Value: {{ this.balance | number }}</span>
+				<span class="ranks">Rank: #{{ this.myRank }} </span>
+			</div>
+		</div>
+
+		<div class="boxtable">
+			<div class="hdr">
+				<span class="col rank">Rank</span>
+				<span class="col uname">User</span>
+				<!-- <span class="col mon">Odds Active For</span> -->
+				<span class="col mon">Start Points</span>
+				<span class="col mon">Current Points</span>
+				<span class="col mon">Contest Points</span>
+			</div>
+			<div class="items" id="scrollview_scores">
+				<div id="scrollcontainer_scores">
+					<div class="item" *ngFor="let o of players; let i = index">
+						<span class="col rank"
+							>#{{ i + 1 }}<img *ngIf="i == 0 && contest_end == true" class="trophy" src="../../../assets/images/trophy.png"
+						/></span>
+						<span class="col uname text-center">{{ o.users[0].first_name }}</span>
+						<span class="col mon text-center">{{ o.start_points | number }}</span>
+						<span class="col mon text-center">{{ o.new_points | number }}</span>
+						<span class="col mon text-center">{{ o.contest_points | number }}</span>
+					</div>
+					<!--end-->
+				</div>
+				<!--scrollcontainrer-->
+			</div>
+		</div>
+	</div>
+</div>
+<!--end-->

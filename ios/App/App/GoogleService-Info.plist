@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>952272229992-bks5cuhjb9cbi67o541ac0a8ebc5fcks.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.952272229992-bks5cuhjb9cbi67o541ac0a8ebc5fcks</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCwdSyjSl7KT6zF15fzqo9A2E1yJu-SSOs</string>
+	<key>GCM_SENDER_ID</key>
+	<string>952272229992</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.dejavusports.baseballcraps08</string>
+	<key>PROJECT_ID</key>
+	<string>baseball-craps</string>
+	<key>STORAGE_BUCKET</key>
+	<string>baseball-craps.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:952272229992:ios:c1d73d8ef2c8b27e068ddd</string>
+</dict>
+</plist>

@@ -1,0 +1,20 @@
+<div class="cont animated fast termspage" [ngClass]="animateClass">
+
+    <div class="topbar termspage-topbar">
+        <a class="btnback-nav" (click)="onClose()"></a>
+        <img class="logo" src="../../../assets/images/inner-logo.png" />
+        <img class="dejavu" src="../../../assets/images/dejavu-logo.png" />
+    </div>
+    <div class="title-cont">
+       <h3>{{title}}</h3>
+    </div>
+
+    <div class="page-content" id="terms_page_content">
+        <app-termsandconditions *ngIf="page=='t-and-c'"></app-termsandconditions>
+        <app-privacy *ngIf="page=='p-p'"></app-privacy>
+        <app-eula *ngIf="page=='eula'"></app-eula>
+        <app-opensource *ngIf="page=='opensource'"></app-opensource>
+    </div>
+
+    
+</div><!--end-->

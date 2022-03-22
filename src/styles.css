@@ -1,0 +1,778 @@
+
+html {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Gotham";
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+  position: fixed;
+  overscroll-behavior: 'none' !important;
+  touch-action: none;
+}
+
+/**/
+.main {
+  min-height: 100%;
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+}
+
+/*667px*/
+.main:before {
+  min-height: 100%;
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  content: " "
+}
+
+body.loginbg {
+  background: url("assets/images/login-bg.jpg") center top no-repeat fixed;
+  background-size: cover;
+  position: static !important;
+  overscroll-behavior: auto !important;
+  touch-action: auto !important;
+}
+
+.main.lobbybg:before {
+  background: url("assets/images/lobby-bg.jpg") center top no-repeat;
+  background-size: cover
+}
+
+.main.gameboardbg:before {
+  background: url("assets/images/gameboardbg.jpg") center top no-repeat;
+  background-size: cover
+}
+
+.bluritem,
+.main.blur:before {
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+}
+
+.inner {
+  display: block;
+}
+
+a {
+  cursor: pointer !important;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent
+}
+
+button,
+select,
+input {
+  outline: 0;
+  outline: none
+}
+
+.mbn_anim {
+  visibility: hidden
+}
+
+.row {
+  max-width: 71%;
+  display: block;
+  margin: 0 auto
+}
+
+.mhdr {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  background: #000f1d;
+  height: 60px;
+  z-index: 9
+}
+
+.top .menu,
+.mhdr .menu {
+  width: 25px;
+  height: 20px;
+  position: relative;
+  display: block;
+  margin: 22px 0 0 15px
+}
+
+.top .menu span,
+.mhdr .menu span {
+  width: 100%;
+  height: 4px;
+  background: #fff;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 0px;
+  content: " ";
+  transform: translate(0, -50%);
+  -webkit-transform: translate(0, -50%);
+}
+
+.top .menu:before,
+.mhdr .menu:before {
+  width: 100%;
+  height: 4px;
+  background: #fff;
+  border-radius: 5px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  content: " "
+}
+
+.top .menu:after,
+.mhdr .menu:after {
+  width: 100%;
+  height: 4px;
+  background: #fff;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  content: " "
+}
+
+.top .menu.active:before,
+.mhdr .menu.active:before {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  margin-top: 13px
+}
+
+.top .menu.active:after,
+.mhdr .menu.active:after {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  bottom: 3px
+}
+
+.top .menu.active span,
+.mhdr .menu.active span {
+  opacity: 0;
+}
+
+.top .menu.active,
+.mhdr .menu.active {
+  margin-top: 17px
+}
+
+.top.active .btnleader,
+.top.active .logo {
+  opacity: 0;
+}
+
+.topbar .logo,
+.mhdr .logo {
+  max-width: 54px;
+  position: absolute;
+  left: 50%;
+  top: 11px;
+  transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0);
+}
+
+.topbar .dejavu,
+.mhdr .dejavu {
+  position: absolute;
+  right: 15px;
+  width: 48px;
+  top: 15px;
+}
+
+.btnreload {
+  width: 120px;
+  height: 24px;
+  background: #d02f44;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  display: block;
+  margin: 10px auto 0;
+  /* padding-top: 10px; */
+  padding-top: 5px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+canvas {
+  z-index: 999;
+  position: absolute;
+}
+
+.btnback-nav {
+  background: url("assets/images/back-nav.svg") 0 0 no-repeat;
+  float: left;
+  width: 63px;
+  height: 63px;
+  background-size: 100%;
+}
+
+.menu-box {
+  overflow-y: scroll;
+}
+
+
+.iphoneLarge .main {
+  padding-top: 40px;
+  min-height: calc(100% - 40px);
+  height: calc(100% - 40px);
+}
+
+.iphoneLarge .gamelobby-box .ic {
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  -webkit-transform: translate(-50%, -50%) !important;
+}
+
+.iphoneLarge .scores-box .ic {
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  -webkit-transform: translate(-50%, -50%) !important;
+}
+
+.iphoneLarge .scores-box .profile {
+  transform: translate(-50%, 0) scale(1) !important;
+  -webkit-transform: translate(-50%, 0) scale(1) !important;
+  bottom: -100px
+}
+
+.iphoneLarge .create-account,
+.iphoneLarge .howtoplay-box,
+.iphoneLarge .change-password,
+.iphoneLarge .forgotpassowrd-box {
+  padding-top: 40px;
+  min-height: calc(100% - 40px);
+  height: calc(100% - 40px)
+}
+
+.iphoneLarge .create-account .cont,
+.iphoneLarge .forgotpassowrd-box .cont {
+  max-width: 330px !important;
+}
+
+.iphoneLarge .create {
+  margin-top: 50px !important
+}
+
+.iphoneLarge .menu-box {
+  top: 103px !important;
+  height: calc(100% - 102px) !important;
+}
+
+.iphoneLarge .about-topbar,
+.iphoneLarge .termspage-topbar,
+.iphoneLarge .prop-bets-topbar,
+.iphoneLarge .default-topbar,
+.iphoneLarge .gamehistory-topbar {
+  height: 103px !important;
+  padding-top: 40px !important
+}
+
+.iphoneLarge .about .title-cont,
+.iphoneLarge .termspage .title-cont,
+.iphoneLarge .prop-bets .title-cont,
+.iphoneLarge .default-cont .title-cont,
+.iphoneLarge .gamehistory .title-cont {
+  top: 103px !important;
+}
+
+.iphoneLarge ul.popup-nav {
+  margin-top: 50px;
+}
+
+.iphoneLarge .lists-container.active {
+  max-height: calc(100% - 30px);
+  min-height: calc(100% - 50px);
+  margin-top: 50px;
+}
+
+.iphoneLarge .about .page-content,
+.iphoneLarge .termspage .page-content,
+.iphoneLarge .gamehistory .items {
+  padding-top: 183px !important;
+  height: calc(100% - 183px) !important
+}
+
+.iphoneLarge .about .topbar .logo,
+.iphoneLarge .termspage .topbar .logo,
+.iphoneLarge .prop-bets .topbar .logo,
+.iphoneLarge .default-cont .topbar .logo,
+.iphoneLarge .gamehistory .topbar .logo {
+  top: 51px !important
+}
+
+.iphoneLarge .about .topbar .dejavu,
+.iphoneLarge .termspage .topbar .dejavu,
+.iphoneLarge .prop-bets .topbar .dejavu,
+.iphoneLarge .default-cont .topbar .dejavu,
+.iphoneLarge .gamehistory .topbar .dejavu {
+  top: 55px !important
+}
+
+.iphoneLarge .mc {
+  height: calc(100% - 40px) !important;
+  padding-top: 40px !important
+}
+
+.iphoneLarge .mc .mhdr {
+  top: 40px !important
+}
+
+.iphoneLarge .mc .passline-left-placebet {
+  bottom: 50px !important
+}
+
+.iphoneLarge .mc .stadium {
+  margin-top: 25% !important
+}
+
+.page-content {
+  padding: 143px 15px 0;
+  display: block;
+  width: calc(100% - 30px);
+  height: calc(100% - 143px);
+  overflow-y: scroll;
+  color: #fff;
+  font-size: 11px
+}
+
+.page-content ul li a,
+.page-content p a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.page-content a {
+  color: #fff !important;
+  text-decoration: underline;
+}
+
+
+ul.popup-nav {
+  display: block;
+  margin: 0 auto;
+  list-style: none;
+  text-align: center;
+  max-width: 230px;
+  padding-inline-start: 0px
+}
+
+ul.popup-nav li a {
+  color: #fff;
+  font-size: 16px;
+  font-family: "Gotham";
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 14px 0;
+  display: inline-block;
+  position: relative;
+}
+
+ul.popup-nav li.hasUnread a:after{
+  content:" ";
+  position: absolute;
+  width:10px;
+  height: 10px;
+  border-radius: 5px;
+  top:50%;
+  right:-12px;
+  background:#f00;
+  -webkit-transform: translate(0,-50%);
+  transform: translate(0,-50%);
+  margin-top:-10px;
+}
+
+ul.popup-nav li {
+  position: relative;
+}
+
+ul.popup-nav li:after {
+  position: absolute;
+  content: " ";
+  left: 0px;
+  border-radius: 3px;
+  bottom: 0px;
+  width: 100%;
+  height: 3px;
+  background: rgb(14, 58, 89);
+  background: -moz-linear-gradient(left, rgb(14, 58, 89) 0%, rgb(10, 91, 143) 50%, rgb(14, 58, 89) 100%);
+  background: -webkit-linear-gradient(left, rgb(14, 58, 89) 0%, rgb(10, 91, 143) 50%, rgb(14, 58, 89) 100%);
+  background: linear-gradient(to right, rgb(14, 58, 89) 0%, rgb(10, 91, 143) 50%, rgb(14, 58, 89) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0e3a59', endColorstr='#0e3a59', GradientType=1);
+}
+
+ul.popup-nav li:last-child:after {
+  display: none;
+}
+
+.default-text-page-title span {
+  font-size: 24px;
+  display: block;
+  color: #F44C57;
+  font-family: "Gotham";
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 30px;
+}
+
+
+.btndefault {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 166px;
+  height: 47.17px;
+  margin: auto auto 39px;
+  background: url("./assets/images/btndefaultbg.svg") 0 0 no-repeat;
+  background-size: cover;
+  font-family: "Gotham Rounded";
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.lists-container {
+  display: flex;
+  flex-direction: column;
+  max-height: 0px;
+  min-height: 0px;
+  z-index: 1;
+  position: relative;
+  /* margin-top: 40px; */
+}
+
+.lists-container .buttons-groups{
+  display: flex;
+  margin-top:auto;
+  width:100%;
+}
+
+.default-form-container{
+  display: flex;
+  flex-direction: column;
+  max-height: 0px;
+  min-height: 0px;
+  opacity: 0;
+
+  z-index:0px;
+}
+
+.default-form-container.active{
+
+  max-height: calc(100% - 30px);
+  min-height: 100%;
+  opacity:1;
+  z-index: 9;
+  position: relative;
+}
+.default-form-container .fld{
+  display: flex;
+  flex-direction: column;
+  margin:0 auto;
+  max-width:calc(100% - 40px);
+  width:100%;
+}
+.default-form-container .fld .lbl{
+  display: block;
+  color:#fff;
+  font-size:14px;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.default-form-container .fld input[type="text"]{
+  border-radius: 30px;
+  width: calc(100% - 32px);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: none;
+  padding: 15px;
+}
+
+.lists-container .list-search-box {
+  margin: 0 15px 15px;
+  display: block;
+  opacity: 0;
+  height: 0px;
+  overflow: hidden;
+}
+
+.lists-container .list-search-box input {
+  border-radius: 30px;
+  width: calc(100% - 32px);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: none;
+  padding: 15px;
+
+}
+
+.lists-container .list-contest-box {
+  margin: 0 15px 15px;
+  display: block;
+  opacity: 0;
+  height: 0px;
+  overflow: hidden;
+}
+
+.lists-container .list-contest-box input {
+  border-radius: 30px;
+  width: calc(100% - 32px);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: none;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.lists-container .list-contest-box select {
+  border-radius: 30px;
+  width: 100%;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: #00263c;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.lists-container .list-search-box.active {
+  height: 55px;
+  opacity: 1;
+
+}
+
+.lists-container .list-contest-box.active {
+  height: auto;
+  opacity: 1;
+}
+
+.lists-container.active {
+
+  max-height: calc(100% - 30px);
+  min-height: 100%;
+}
+
+.lists-container .btndefault {
+  margin: auto auto 60px;
+  height: 46px;
+  background-size: 100%;
+  opacity: 0;
+}
+
+
+.lists-container .btndefault.active {
+  opacity: 1;
+}
+
+.lists-container ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0px 15px 20px;
+  padding: 0px;
+  max-width: calc(100% - 30px);
+  overflow-y: scroll;
+  border-radius: 8px;
+  width: 100%;
+  max-height: 380px;
+
+}
+
+.lists-container ul li {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+  color: #ffffff;
+  background-color: #4a5e85;
+}
+
+.lists-container ul li a {
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 11px;
+  border: 1px solid #fff;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.lists-container ul li .status {
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 11px;
+  border: 1px solid #fff;
+  text-transform: uppercase;
+  opacity: 0.3;
+}
+
+
+
+.lists-container ul li:nth-child(2n+1) {
+  background-color: #2a466c;
+}
+
+
+.top .menu span:after {
+  content: " ";
+  position: absolute;
+  top: -12px;
+  right: -5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background: #f00;
+  z-index: 8;
+  display: none;
+}
+.top .menu span.active:after{
+  display: block;
+}
+
+@media screen and (display-mode: browser) and (max-width: 375px) {
+  .mhdr .logo {
+    max-width: 54px;
+  }
+
+}
+
+@media screen and (max-width: 360px) {
+  .main {
+    min-height: 100%
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .row {
+    max-width: 85%;
+  }
+
+}
+
+
+
+@media screen and (max-width: 375px) {
+  .browserMobile .mc .stadium {
+    margin-top: 5px !important
+  }
+
+  .nativeMobile .mc .stadium {
+    max-width: 375px !important;
+    margin-top: 0px !important
+  }
+
+  .nativeMobile .button_pos.b_hit {
+    left: 74% !important;
+    top: 112px !important
+  }
+
+  .nativeMobile .button_pos.b_fly_out {
+    left: 23% !important;
+    top: 112px !important
+  }
+
+  .iphoneLarge.nativeMobile .mc .stadium,
+  .iphoneLarge.browserMobile .mc .stadium {
+    margin-top: 15% !important;
+    max-width: 375px !important
+  }
+
+  .iphoneLarge.nativeMobile .button_pos.b_hit,
+  .iphoneLarge.browserMobile .button_pos.b_hit {
+    left: 74% !important;
+    top: 112px !important
+  }
+
+  .iphoneLarge.nativeMobile .button_pos.b_fly_out,
+  .iphoneLarge.browserMobile .button_pos.b_fly_out {
+    left: 23% !important;
+    top: 112px !important
+  }
+
+  .game_status {
+    margin-top: 60px
+  }
+
+  .mc .stadium .fly_out {
+    top: 33%
+  }
+
+  .mc .stadium .infield_fly {
+    bottom: 112px;
+    left: 32%
+  }
+
+  .mc .stadium .bb {
+    left: 44%;
+    bottom: 51px;
+  }
+
+  .mc .stadium .k {
+    left: 44%;
+    bottom: 90px;
+  }
+
+  .mc .stadium .ground_out {
+    right: 31%;
+    bottom: 114px
+  }
+
+  .mc .stadium .hit {
+    left: 63%;
+    top: 82px
+  }
+
+  .mc .k-placebet {
+    bottom: 106px
+  }
+
+  .mc .ground_out-placebet,
+  .mc .infield_fly-placebet {
+    bottom: 104px
+  }
+
+  .mc .hit-placebet,
+  .mc .fly_out-placebet {
+    top: 69px
+  }
+
+  .button_pos.b_hit {
+    top: 112px !important
+  }
+
+  .button_pos.b_fly_out {
+    top: 112px !important
+  }
+}
+
+
+bs-datepicker-container, bs-daterangepicker-container {
+  z-index: 9999!important;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.bs-datepicker-head {
+  box-sizing: border-box!important;
+}

@@ -1,0 +1,28 @@
+<div class="cont animated fast about" [ngClass]="animateClass">
+
+    <div class="topbar about-topbar">
+        <a class="btnback-nav" (click)="onClose()"></a>
+        <img class="logo" src="../../../assets/images/inner-logo.png" />
+        <img class="dejavu" src="../../../assets/images/dejavu-logo.png" />
+    </div>
+    <div class="title-cont">
+       <h3>ABOUT</h3>
+    </div>
+
+    <div class="page-content">
+        <img src="../../../assets/images/inner-logo-p.png" class="logo"/>
+        <p>Version 1.1 (9)</p>
+        <p>2020 Deja Vu Sports LLC </p>
+
+        <hr/>
+        <p class="terms">
+            <a (click)="loadterms('t-and-c')">Terms and Conditions</a>
+            <a (click)="loadterms('p-p')">Privacy Policy</a>
+            <a (click)="loadterms('eula')">End User Licensing Agreement (EULA)</a>
+            <a (click)="loadterms('opensource')">Open Source License</a>
+        </p>
+    </div>
+
+    
+</div><!--end-->
+<app-termspage *ngIf="termspage!=''" [page]="termspage" (closed)="onCloseDefault()"></app-termspage>

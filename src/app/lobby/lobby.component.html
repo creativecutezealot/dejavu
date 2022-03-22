@@ -1,0 +1,40 @@
+<div class="top animated fadeInDown delay-1s" [ngClass]="mcClass">
+        <a class="menu" [ngClass]="mcClass?mcClass:''" (click)="onShowMenu($event)">
+                <span [ngClass]="{'active':hasNotification}"></span>
+            </a><!--emd-->
+     <app-money class="app-money"></app-money>
+    <img src="../../assets/images/inner-logo.png" class="logo"/>
+    <a class="btnleader" (click)="onClickLeaderboard($event)" [ngClass]="page=='leaderboard'?'active':''"></a>
+</div>
+
+<app-game-inprogress [blurClass]="mcClass" *ngIf="page=='game-in-progress'"></app-game-inprogress>
+<app-scores (closed)="onCloseScores($event)" *ngIf="page=='leaderboard'"></app-scores>
+<!-- <app-ads [ngClass]="mcClass" position="bottom"></app-ads> -->
+<app-main-menu [isTopBar]="true" [hideMenus]="['game-lobby','game-screen']" *ngIf="comps=='menu'" (closed)="onCloseMenu($event)"></app-main-menu>
+<app-scores *ngIf="comps=='scores'" (closed)="onCloseDefault($event)"></app-scores>
+<app-odds-rules *ngIf="comps=='odds_rules'" (closed)="onCloseDefault($event)"></app-odds-rules>
+<app-my-contests *ngIf="comps=='my-contests'" (closed)="onCloseDefault($event)" (onSelectMenu)="onSelectContestMenu($event)"></app-my-contests>
+<app-add-contest *ngIf="comps=='add-contest'" (closed)="onCloseDefault($event)" (onSelectMenu)="onSelectContestMenu($event)"></app-add-contest>
+<app-contest-invites *ngIf="comps=='contest-invites'" (closed)="onCloseDefault($event)" (onSelectMenu)="onSelectContestMenu($event)"></app-contest-invites>
+<app-contest-single *ngIf="comps=='contest-single'" (closed)="onCloseDefault($event)" (onSelectMenu)="onSelectContestMenu($event)"></app-contest-single>
+<app-edit-profile *ngIf="comps=='edit-profile'"  (closed)="onCloseDefault($event)"></app-edit-profile>
+<app-change-password *ngIf="comps=='change-password'" (closed)="onCloseDefault($event)"></app-change-password>
+<app-how-to-play *ngIf="comps=='how-to-play'" (closed)="onCloseDefault($event)"></app-how-to-play>
+<app-game-history *ngIf="comps=='game-history'" (closed)="onCloseDefault($event)"></app-game-history>
+<app-about *ngIf="comps=='about'" (closed)="onCloseDefault($event)"></app-about>
+
+<app-prop-bet-outcomes *ngIf="sub_comp=='prop-bet-outcomes'" (closed)="onClosePropBetsOutcome($event)"></app-prop-bet-outcomes>
+
+<app-friends *ngIf="sub_comp=='friends'" (closed)="onClosePageFriendsMenu($event)"></app-friends>
+<app-friends-request *ngIf="sub_comp=='friends-request'" (closed)="onClosePageFriendsMenu($event)"></app-friends-request>
+<app-friends-menu [animateClass]="friends_menu_anim_class" *ngIf="comps=='friends-menu'" (onSelectMenu)="onSelectFriendsMenu($event)" (closed)="onCloseDefault($event)"></app-friends-menu>
+<app-groups *ngIf="sub_comp=='groups'" (closed)="onClosePageGroupsMenu($event)"></app-groups>
+<app-groups-invite *ngIf="sub_comp=='groups-request'" (closed)="onClosePageGroupsMenu($event)"></app-groups-invite>
+<app-groups-menu [animateClass]="groups_menu_anim_class" *ngIf="comps=='groups-menu'" (onSelectMenu)="onSelectGroupsMenu($event)" (closed)="onCloseDefault($event)"></app-groups-menu>
+
+<!-- -->
+<app-popupaccordion-select></app-popupaccordion-select>
+<app-popupover-select></app-popupover-select>
+<app-popupover-textfield></app-popupover-textfield>
+<app-popupover-confirmation></app-popupover-confirmation>
+<app-notifications></app-notifications>

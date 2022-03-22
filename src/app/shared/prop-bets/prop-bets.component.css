@@ -1,0 +1,150 @@
+.cont{background-color:#00263c;position: absolute;top:0px;left:0px;z-index:9999;width:100%;height:100%;}
+.topbar{
+  width: 100%;
+  height: 63px;
+  background-color: #000f1d;
+  position: fixed;
+  top:0px;
+  left:0px;
+  z-index:99;
+}
+.title-cont{top:63px;width:100%;text-align: center;height:80px;position: fixed;left:0px;z-index: 99;background-color:#00263c}
+.title-cont img{position: absolute;top:50%;left:50%;transform:translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);}
+
+.props-form{
+  display: flex;
+  flex-direction: column;
+  margin:200px 16px 33px;
+  height:calc( 100% - 200px);
+}
+
+.props-form .fields{
+  display: flex;
+  align-items: center;
+  margin-bottom:15px;
+}
+.props-form .fields .switch{
+  margin-left:auto;
+}
+
+.props-form .fields.send-to .select{
+  margin-left:0px;
+  margin-right:auto;
+  max-width: 204px;
+}
+.props-form .fields.disabled .select,
+.props-form .fields.disabled .txt,
+.props-form .fields.disabled .lbl{
+  opacity: 0.25;
+}
+
+.props-form .fields .lbl{
+  display: flex;
+  font-family: "Gotham Rounded";
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.36em;
+  text-align: left;
+  color: #ffffff;
+  align-items: center;
+}
+
+.props-form .fields .txt,
+.props-form .fields .select{
+  display: flex;
+  margin-left:auto;
+  width:100%;
+  /* max-width: 126px; */
+  height: 25px;
+  align-items: center;
+  font-family: "Gotham Rounded";
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.36em;
+  text-align: left;
+  color: #ffffff;
+  border-radius: 5px;
+  position: relative;
+  padding:0 10px;
+  margin-right: 5px;
+}
+.props-form .fields .txt span,
+.props-form .fields .select span{
+  position: relative;
+  z-index: 2;
+  line-height: 1em;
+  margin-top:1px;
+}
+
+.props-form .fields.max-takers{
+  margin-bottom: 30px;
+}
+.props-form .fields.all-watching{
+  margin-top:15px;
+}
+
+.props-form .fields .txt:before,
+.props-form .fields .select:before{
+  content:" ";
+  position: absolute;
+  left:0px;
+  top:0px;
+  width:100%;
+  height:100%;
+  opacity: 0.6;
+  border-radius: 5px;
+  border: solid 0.3px #cbe4ff;
+  background-image: linear-gradient(to bottom, #00182e, #0b345a);
+  z-index: 1;
+}
+.props-form .fields .select:after{
+  content:" ";
+  position: absolute;
+  right: 10px;
+  top:11px;
+  width:0px;
+  height:0px;
+  border-left:3.5px solid transparent;
+  border-right:3.5px solid transparent;
+  border-top:6px solid #ffffff;
+  z-index: 3;
+}
+
+.props-form .fields .txt{
+  display: flex;
+}
+.props-form .fields .txt .val{
+  margin-left:auto;
+  
+}
+
+.autoRenew {
+  margin-left: auto;
+}
+
+.sub-title {
+  display:block;
+  font-family: "Gotham Rounded";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.44em;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  margin:0 0 20px 0;
+  width: 100%;
+}
+
+.field-value {
+  display: flex;
+  margin-left: auto;
+  width: 100%;
+  max-width: 200px;
+  align-items: center;
+}
+
+.event_content {
+  width: 100%;
+}
+
+

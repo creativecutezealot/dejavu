@@ -1,0 +1,46 @@
+<div class="boxtable animated" [ngClass]="boxClass">
+	<div class="ic">
+		<img src="../../../assets/images/inner-logo.png" alt="Logo" class="menu-logo" />
+		<a (click)="onClose()" class="btnclose"></a>
+		<h3>{{ data.game.Status }}</h3>
+		<table>
+			<tr class="th">
+				<th></th>
+				<th class="scores">Score</th>
+				<th>Inning</th>
+			</tr>
+			<tr>
+				<td>{{ data.game.HomeTeam }}</td>
+				<td class="scores">{{ data.game.HomeTeamRuns }}</td>
+				<td rowspan="2" class="inning">Final</td>
+			</tr>
+			<tr>
+				<td>{{ data.game.AwayTeam }}</td>
+				<td class="scores">{{ data.game.AwayTeamRuns }}</td>
+			</tr>
+		</table>
+		<h3>Game Result</h3>
+		<table>
+			<tr class="th">
+				<th></th>
+				<th>Amount</th>
+			</tr>
+			<tr>
+				<td>Total Bets</td>
+				<td class="scores" *ngIf="data.total_bets">
+					{{ data.total_bets | gameCurrencyFormat }}
+				</td>
+			</tr>
+			<tr>
+				<td>Total Win</td>
+				<td class="scores" *ngIf="data.total_win">+ {{ data.total_win | gameCurrencyFormat }}</td>
+			</tr>
+			<tr>
+				<td>Total Loss</td>
+				<td class="scores" *ngIf="data.total_lose">- {{ data.total_lose | gameCurrencyFormat }}</td>
+			</tr>
+		</table>
+	</div>
+	<!--end ic-->
+</div>
+<!--end-->

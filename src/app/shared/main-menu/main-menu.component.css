@@ -1,0 +1,47 @@
+.boxtable {position: absolute;top:63px;left:0px;width:100%;height:calc(100% - 62px);z-index: 999;background:#00263c;}
+.boxtable .ic{width:100%;min-height:100%;display: flex;flex-direction: column;overflow-y: scroll;}
+.topbar{position: absolute;top:-63px;left:0px;width:100%;}
+.menu-logo{max-width:105px;margin:19px auto 0px;display:block;}
+.text-settings{margin:30px auto 15px;display:block;width:80px;}
+.boxtable ul{display:block;margin:0 auto 20px;list-style:none;text-align: center;max-width:230px;padding-inline-start:0px}
+.boxtable ul li a{color:#fff; font-size:14px;font-family:"Gotham";text-transform:uppercase;font-weight:bold;padding:14px 0;display:block;}
+.boxtable ul li{position: relative;}
+.boxtable ul li:after{position:absolute;content:" ";left:0px;border-radius:3px;bottom:0px;width:100%;height:3px;background: rgb(14,58,89);
+    background: -moz-linear-gradient(left,  rgb(14,58,89) 0%, rgb(10,91,143) 50%, rgb(14,58,89) 100%);
+    background: -webkit-linear-gradient(left,  rgb(14,58,89) 0%,rgb(10,91,143) 50%,rgb(14,58,89) 100%);
+    background: linear-gradient(to right,  rgb(14,58,89) 0%,rgb(10,91,143) 50%,rgb(14,58,89) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0e3a59', endColorstr='#0e3a59',GradientType=1 );
+    }
+.boxtable ul li:last-child:after{display:none;}
+
+
+.poweredby{display:block;margin:0 auto;text-align: center;width:100%;}
+.poweredby .title{display:block;  
+    height: 8px;
+    font-family: "Gotham Ultra";
+    font-size: 8px;
+    font-weight: normal;
+    font-style: italic;
+    line-height: 1;
+    letter-spacing: normal;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-bottom:10px;
+}
+.poweredby a{display:block;}
+
+.alert-label {
+    color: #ffffff;
+    font-size: 14px;
+    background-color: #e73545;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    padding: 3px 8px;
+    margin-left: 5px;
+}
+
+@media screen and (max-width:320px){
+    .poweredby{bottom:20px}
+    .boxtable ul li a{font-size:14px;padding:12px 0}
+}

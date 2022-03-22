@@ -1,0 +1,11 @@
+<div class="anim lists-container" [ngClass]="{'active':_status}">
+    <div class="list-search-box anim" [ngClass]="{'active':_status}">
+      <input type="text" placeholder="Search..." [(ngModel)]="_txt_groups_search" (keyup)="onShowGroups($event)"/>
+    </div>
+    <ul *ngIf="_user_groups">
+      <li *ngFor="let row of _user_groups" (click)="onShowMembers(row.groups._id)"><span>{{row.groups.name}}</span></li>
+    </ul>
+    <a class="btndefault anim" [ngClass]="{'active':_status}"  (click)="onAddGroup()">Create Group</a>
+</div> 
+
+<!--<a class="btnleave" (click)="onLeave(row.groups._id)">Leave</a>-->

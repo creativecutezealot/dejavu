@@ -1,0 +1,7 @@
+<div [ngStyle]="{'height.px':(height?height:''),'top.px':(top?top:'')}" class="scrollbar" #scrollbar>
+        <a class="up_arrow" (click)="onScrollUp($event)"></a>
+        <div class="track" #track>
+          <a (touchstart)="onDragStart($event)" (touchmove)="onDragging($event)" (touchend)="onDragEnd($event)" [ngStyle]="{'top.px':scrollTop}" class="scroller" #scroller></a>
+        </div>
+        <a class="down_arrow" (click)="onScrollDown($event)"></a>
+</div>

@@ -1,0 +1,51 @@
+<div class="boxtable menu-box animated fast" [ngClass]="boxClass">
+    <div class="topbar" *ngIf="isTopBar">
+        
+        <img class="logo" src="../../../assets/images/inner-logo.png" />
+        <img class="dejavu" src="../../../assets/images/dejavu-logo.png" />
+    </div>
+    <div class="ic">
+        <img src="../../../assets/images/settings-text.svg" class="text-settings" alt="Settings"/>
+        <ul *ngIf="isMain">
+            <li><a (click)="onMenuClick('account-settings')">Account Settings</a></li>
+            <li><a (click)="onMenuClick('contests')">Contests<span class="alert-label" *ngIf="contestInvites.length > 0">{{ contestInvites.length }}</span></a></li>
+            <li><a (click)="onMenuClick('game-history')">Game History</a></li>
+            <li><a (click)="onMenuClick('game-lobby')" *ngIf="hideMenus.indexOf('game-lobby')==-1">Game Lobby</a></li>
+            <li><a (click)="onMenuClick('game-screen')" *ngIf="hideMenus.indexOf('game-screen')==-1" >Game Screen</a></li>
+            <li><a (click)="onMenuClick('odds_rules')">Odds Rules</a></li>
+            <li><a (click)="onMenuClick('scores')">Scores</a></li>
+            <li [ngClass]="{'hasUnread':hasUnreadFirendRequest}"><a (click)="onMenuClick('friends-menu')">Friends</a></li>
+            <li><a (click)="onMenuClick('groups-menu')">Groups</a></li>
+            <li><a (click)="onMenuClick('prop-bets')">Propose a Bet</a></li>
+            <li><a (click)="onMenuClick('prop-bet-outcomes')">Prop Bet Outcomes</a></li>
+            <li><a (click)="onMenuClick('how-to-play')">How to Play</a></li>
+            <li><a (click)="onMenuClick('about')">About</a></li>
+            <li><a (click)="onMenuClick('logout')">Logout</a></li>
+        </ul>
+        <ul *ngIf="isAccountSettings">
+            <li><a (click)="onMenuClick('edit-profile')">Edit Profile</a></li>
+            <li><a (click)="onMenuClick('change-password')">Change Password</a></li>
+            <li><a (click)="onMenuClick('delete-account')">Delete Account</a></li>
+            <li><a (click)="onMenuClick('back-to-main')">Back to Main Menu</a></li>
+        </ul>
+        <ul *ngIf="isContests">
+            <li><a (click)="onMenuClick('my-contests')">My Contests</a></li>
+            <li><a (click)="onMenuClick('contest-invites')">Contests Invites<span class="alert-label" *ngIf="contestInvites.length > 0">{{ contestInvites.length }}</span></a></li>
+            <li><a (click)="onMenuClick('add-contest')">Create Contest</a></li>
+            <li><a (click)="onMenuClick('back-to-main')">Back to Main Menu</a></li>
+        </ul>
+
+
+        <!-- <div class="poweredby">
+            <span class="title">Powered By:</span>
+            <a href="https://fantasydata.com/" target="_blank">
+    <img src="../../../assets/images/fantasy-logo.png"
+    srcset="../../../assets/images/fantasy-logo@2x.png 2x,
+    ../../../assets/images/fantasy-logo@3x.png 3x"
+    class="fantasy-logo">
+            </a>
+        </div> -->
+    </div><!--end ic-->
+   
+</div><!--end-->
+  

@@ -1,0 +1,5 @@
+.buttons{display:block;max-width:375px;margin:100px auto 0;text-align: center}
+.btn500{width:153.12px;height:89.1px;background:url("../../../assets/images/btn500.png") 0 0 no-repeat;background-size:100%;display:inline-block}
+.btn10k{width:153.78px;height:91.41px;background:url("../../../assets/images/btn10k.png") 0 0 no-repeat;background-size:100%;display:inline-block;margin-right:-11px}
+.btn5k{width:153.12px;height:91.41px;background:url("../../../assets/images/btn5k.png") 0 0 no-repeat;background-size:100%;display:inline-block}
+.btn50k{width:153.78px;height:91.41px;background:url("../../../assets/images/btn50k.png") 0 0 no-repeat;background-size:100%;display:inline-block;margin-right:-11px}
